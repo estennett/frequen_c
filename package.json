@@ -1,0 +1,26 @@
+{
+  "name": "frequen_c",
+  "version": "1.0.0",
+  "description": "Pocast App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcgrodsky/frequen_c.git"
+  },
+  "author": "Eric, Mia, Elise",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcgrodsky/frequen_c/issues"
+  },
+  "homepage": "https://github.com/mcgrodsky/frequen_c#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "expres": "0.0.5",
+    "hbs": "^4.0.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.2.9"
+  }
+}
