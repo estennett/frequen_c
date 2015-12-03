@@ -7,15 +7,16 @@ var bodyParser = require('body-parser');
 app.use(bodyParser());
 
 app.set('view engine', 'hbs');
-app.use(express.static(path.koin(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));//need public directory
 
 
 
-app.get('/', frequencies.index);
+app.get('/', function(req, res){
+  res.render('index.html');
+});
 
 
 app.use('/frequencies', require('./controllers/frequencies'));
-app.use('/podcasts', require('./controllers/podcasts'));
 
 
 
