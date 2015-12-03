@@ -3,12 +3,13 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var hbs = require('hbs');
+var path = require('path');
 var bodyParser = require('body-parser');
 
 app.use(bodyParser());
 
 app.set('view engine', 'hbs');
-// app.use(express.static(path.join(__dirname, 'public')));//need public directory
+app.use(express.static(path.join(__dirname, 'public')));//need public directory
 
 
 
