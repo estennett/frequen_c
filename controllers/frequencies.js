@@ -11,4 +11,14 @@ router.get('/frequencies', function(req, res){
   });
 });
 
+router.get('/frequencies/:id', function(req, res){
+  Frequency.findById(req.params.id).then(function(frequency){
+    res.json(frequency);
+  });
+});
+
+
+
+
+//where are we requiring this router??
 module.exports = router;
