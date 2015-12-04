@@ -11,4 +11,6 @@ router.get('/frequencies', function(req, res){
   });
 });
 
+
+//where are we requiring this router??
 module.exports = router;

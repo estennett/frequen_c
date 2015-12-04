@@ -9,10 +9,10 @@ Frequency.fetch = function(){
     var frequencies = [];
     for(var i = 0; i < response.length; i ++){
       frequencies.push(new Frequency(response[i]));
-    }
+    };
     return frequencies;
   }).fail(function(response){
     console.log("js failed to load");
-  })
+  });
   return request;
-}
+};
