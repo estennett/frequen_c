@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));//need public directory
 app.use(flash());
 
 
+
 app.get('/', function(req, res){
   res.render('index.html');
 });
@@ -37,6 +38,7 @@ app.get('/', function(req, res){
 var routes = require('./config/routes');
 app.use(routes);
 
+//was having trouble configuring passport routes in our index.js file - the below lives in config/routes.js
 // function authenticatedUser(req, res, next) {
 //   // If the user is authenticated, then we continue the execution
 //   if (req.isAuthenticated()) return next();
