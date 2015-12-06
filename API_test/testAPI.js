@@ -1,8 +1,8 @@
   $(document).ready(function() {
 
   // Search iTunes API for podcasts based on genre
-  var searchPodcast = function(genre){
-    var url = "https://itunes.apple.com/search?term=" + genre + "&media=podcast";
+  var searchPodcast = function(search){
+    var url = "https://itunes.apple.com/search?term=" + search + "&media=podcast";
     $.ajax({
         url: url,
         dataType: 'JSONP'
@@ -16,13 +16,27 @@
     })
   }
 
+  // Search iTunes API for podcasts based on genre
+  var lookupPodcastEpisodes = function(lookup, div){
+    var url = "https://itunes.apple.com/lookup?id=" + lookup + "&media=podcast";
+    $.ajax({
+        url: url,
+        dataType: 'JSONP'
+    })
+    .done(function(response) {
+      div.append(episodeWidget(response.results[0].feedUrl));
+    })
+    .fail(function(response) {
+      console.log(response);
+    })
+  }
+
   // Use feedwind widget to show episodes
   var episodeWidget = function(podcastFeed){
-    var html = true;
     var params = {
       rssmikle_url: podcastFeed,
       rssmikle_frame_width: "500",
-      rssmikle_frame_height: "",
+      rssmikle_frame_height: "0",
       frame_height_by_article: "10",
       rssmikle_target: "_blank",
       rssmikle_font: "Arial, Helvetica, sans-serif",
@@ -65,7 +79,7 @@
       keyword_inc: "",
       keyword_exc: ""
     };
-    return feedwind_show_widget_iframe(params, html);
+    return feedwind_show_widget_iframe(params, true);
   }
 
 
@@ -74,19 +88,21 @@
     var $el = $("<div/>");
     $.each(searchResults, function(index, podcast){
       console.log(podcast);
-      var $preview = "<div class='podcastEntry'>"
+      var $preview = "<div class='podcastEntry " + podcast.collectionId + "'>"
       $preview += "<p>" + podcast.artistName + "</p>";
       $preview += "<p>" + podcast.collectionName + "</p>";
       $preview += "<p>" + podcast.genres.join(", ") + "</p>";
       $preview += "<img src=" + podcast.artworkUrl100 + "></div>";
       $el.append($preview);
-      $el.append(episodeWidget(podcast.feedUrl));
     });
+
     $("#podcastDisplay").append($el);
 
+    // Add event listener
     $(".podcastEntry").click(function(event){
-      // event.target
-      alert(event.target);
+      var div = $(event.target).closest("div");
+      var divClasses = div.attr('class').split(/\s+/);
+      var episodeWidget = lookupPodcastEpisodes(divClasses[1], div);
     });
   }
 
@@ -96,7 +112,5 @@
     $("#podcastDisplay").html("");
     var input = $("#genre").val();
     searchPodcast(input);
-  })
-
-
+  });
 });
