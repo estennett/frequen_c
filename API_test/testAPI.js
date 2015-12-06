@@ -16,26 +16,10 @@
     })
   }
 
-  // Search iTunes API for podcasts based on genre
-  var lookupPodcastEpisodes = function(lookup, div){
-    var url = "https://itunes.apple.com/lookup?id=" + lookup + "&media=podcast";
-    $.ajax({
-        url: url,
-        dataType: 'JSONP'
-    })
-    .done(function(response) {
-      div.append(episodeWidget(response.results[0].feedUrl));
-    })
-    .fail(function(response) {
-      console.log(response);
-    })
-  }
-
   // Use feedwind widget to show episodes
   var episodeWidget = function(podcastFeed){
     var params = {
-      rssmikle_url: podcastFeed,
-      rssmikle_frame_width: "500",
+      rssmikle_url: podcastFeed,  rssmikle_frame_width: "500",
       rssmikle_frame_height: "0",
       frame_height_by_article: "10",
       rssmikle_target: "_blank",
@@ -91,6 +75,7 @@
       var $preview = "<div class='podcastEntry " + podcast.collectionId + "'>"
       $preview += "<p>" + podcast.artistName + "</p>";
       $preview += "<p>" + podcast.collectionName + "</p>";
+      $preview += "<p class='hide feedUrl'>" + podcast.feedUrl + "</p>"
       $preview += "<p>" + podcast.genres.join(", ") + "</p>";
       $preview += "<img src=" + podcast.artworkUrl100 + "></div>";
       $el.append($preview);
@@ -101,8 +86,8 @@
     // Add event listener
     $(".podcastEntry").click(function(event){
       var div = $(event.target).closest("div");
-      var divClasses = div.attr('class').split(/\s+/);
-      var episodeWidget = lookupPodcastEpisodes(divClasses[1], div);
+      var feedUrl = div.find(".feedUrl").text();
+      div.append(episodeWidget(feedUrl));
     });
   }
 
