@@ -11,51 +11,56 @@ var morgan = require('morgan'); //to have more rebose logs in passport...whateve
 var cookieParser = require('cookie-parser');//allows us to handle sessions
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var staticsController = require('./controllers/statics');
-var usersController = require('./controllers/users');
+// var staticsController = require('./controllers/statics');
+// var usersController = require('./controllers/users');
 
 
 mongoose.connect('mongodb://localhost/frequency');//we will have a headache when we deploy to heroku
+
+app.set('view engine', 'hbs');
+app.set("views","./views");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use('/', require('./controllers/frequencies'));
-
-app.set('view engine', 'hbs');
+app.use(express.static(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));//need public directory
+app.use(flash());
 
 
 app.get('/', function(req, res){
   res.render('index.html');
 });
 
-function authenticatedUser(req, res, next) {
-  // If the user is authenticated, then we continue the execution
-  if (req.isAuthenticated()) return next();
+var routes = require('./config/routes');
+app.use(routes);
 
-  // Otherwise the request is always redirected to the home page
-  res.redirect('/');
-}
-
-
-router.route('/')
-  .get(staticsController.home);
-
-  router.route("/secret")
-     .get(authenticatedUser, usersController.secret)
-
-router.route('/signup')
-  .get(usersController.getSignup)
-  .post(usersController.postSignup)
-
-router.route('/login')
-  .get(usersController.getLogin)
-  .post(usersController.postLogin)
-
-router.route("/logout")
-  .get(usersController.getLogout)
+// function authenticatedUser(req, res, next) {
+//   // If the user is authenticated, then we continue the execution
+//   if (req.isAuthenticated()) return next();
+//
+//   // Otherwise the request is always redirected to the home page
+//   res.redirect('/');
+// }
+//
+// router.route('/')
+//   .get(staticsController.home);
+//
+//   router.route("/secret")
+//      .get(authenticatedUser, usersController.secret)
+//
+// router.route('/signup')
+//   .get(usersController.getSignup)
+//   .post(usersController.postSignup)
+//
+// router.route('/login')
+//   .get(usersController.getLogin)
+//   .post(usersController.postLogin)
+//
+// router.route("/logout")
+//   .get(usersController.getLogout)
 
 
 app.listen(4000, function(){
