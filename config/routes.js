@@ -26,7 +26,7 @@ router.route('/signup')
   .get(usersController.getSignup)
   .post(usersController.postSignup)
 
-router.route('/login')
+router.route('/login.js')
   .get(usersController.getLogin)
   .post(usersController.postLogin)
 
