@@ -17,17 +17,20 @@ var session = require('express-session');
 
 mongoose.connect('mongodb://localhost/frequency');//we will have a headache when we deploy to heroku
 
-app.set('view engine', 'hbs');
-app.set("views","./views");
+app.set('view engine', 'hbs');//changed 'js' to 'hbs'
+app.set("views","./views/user");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use('/', require('./controllers/frequencies'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/'));
 app.use(express.static(path.join(__dirname, 'public')));//need public directory
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash());
+app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
 
 
 
