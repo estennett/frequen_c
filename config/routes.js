@@ -20,8 +20,8 @@ function authenticatedUser(req, res, next) {
 router.route('/')
   .get(staticsController.home);
 
-  router.route("/secret")
-     .get(authenticatedUser, usersController.secret)
+router.route("/secret")
+ .get(authenticatedUser, usersController.secret)
 
 router.route('/signup')
   .get(usersController.getSignup)

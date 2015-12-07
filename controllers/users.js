@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var Frequency = require('../models/frequency');
 var Podcast = require('../models/podcast');
+var passport = require("passport")
+
 
 // GET /signup
 function getSignup(request, response) {
@@ -11,13 +13,13 @@ function getSignup(request, response) {
 }
 
 // POST /signup
-function postSignup(request, response) {
+function postSignup(request, response, next) {
   var signUpStrategy = passport.authenticate('local-signup',{
     successRedirect: '/',
     failureRedirect : '/signup',
     failureFlash : true
   });
-  return signUpStrategy(request, response);
+  return signUpStrategy(request, response, next);
 }
 
 // GET /login
