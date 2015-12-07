@@ -1,4 +1,4 @@
-  $(document).ready(function() {
+$(document).ready(function() {
 
   // Search iTunes API for podcasts based on genre
   var searchPodcast = function(search){
@@ -16,69 +16,39 @@
     })
   }
 
-  // Use feedwind widget to show episodes
-  var episodeWidget = function(podcastFeed){
-    var params = {
-      rssmikle_url: podcastFeed,
-      rssmikle_frame_width: "500",
-      rssmikle_frame_height: "0",
-      frame_height_by_article: "10",
-      rssmikle_target: "_blank",
-      rssmikle_font: "Arial, Helvetica, sans-serif",
-      rssmikle_font_size: "12",
-      rssmikle_border: "off",
-      responsive: "off",
-      rssmikle_css_url: "",
-      text_align: "left",
-      text_align2: "left",
-      corner: "off",
-      scrollbar: "on",
-      autoscroll: "off",
-      scrolldirection: "up",
-      scrollstep: "3",
-      mcspeed: "20",
-      sort: "Off",
-      rssmikle_title: "on",
-      rssmikle_title_sentence: "",
-      rssmikle_title_link: "",
-      rssmikle_title_bgcolor: "#e7bb41",
-      rssmikle_title_color: "#FFFFFF",
-      rssmikle_title_bgimage: "",
-      rssmikle_item_bgcolor: "#FFFFFF",
-      rssmikle_item_bgimage: "",
-      rssmikle_item_title_length: "55",
-      rssmikle_item_title_color: "#000",
-      rssmikle_item_border_bottom: "on",
-      rssmikle_item_description: "on",
-      item_link: "off",
-      rssmikle_item_description_length: "150",
-      rssmikle_item_description_color: "#666666",
-      rssmikle_item_date: "gl1",
-      rssmikle_timezone: "Etc/GMT",
-      datetime_format: "%b %e %Y %l:%M %p",
-      item_description_style: "text+tn",
-      item_thumbnail: "full",
-      item_thumbnail_selection: "auto",
-      article_num: "15",
-      rssmikle_item_podcast: "off",
-      keyword_inc: "",
-      keyword_exc: ""
-    };
-    return feedwind_show_widget_iframe(params, true);
+  // Handle Yahoo Response (callback function)
+  var handleResponse = function(response) {
+      console.log(response);
+      console.log(response.query.results.feed.entry[0].title);
+      var text = '', item;
+      for (var i = 0, k = response.query.results.feed.entry.length; i < k; i++) {
+        item = response.query.results.feed.entry[i];
+        text += '<li><a href="' + item.link[0].href + '">' + item.title + '</a></li>';
+      }
+      $('#episodeDisplay').html(text);
+    }
+
+  // Use Yahoo Script to generate episodes
+  var injectYahooScript = function(feed) {
+    feed = encodeURIComponent(feed);
+    // console.log(feed);
+    var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feednormalizer%20where%20url%3D'" + feed + "%20and%20output%3D'atom_1.0'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=handleResponse"
+    // console.log(url);
+    var scriptElement = document.createElement('script');
+    scriptElement.setAttribute('type', 'text/javascript');
+    console.log(scriptElement);
+    scriptElement.setAttribute('src', url);
+    document.getElementsByTagName('head')[0].appendChild(scriptElement);
   }
 
-  var pickEpisodeButton = function(){
-    console.log("Select This Episode");
-    var episodes = $(".feed_item");
-    console.log(episodes);
-  }
+  injectScript("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feednormalizer%20where%20url%3D'http%3A%2F%2Fthatsnormal.libsyn.com%2Frss'%20and%20output%3D'atom_1.0'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=handleYahooResponse", false);
 
   // Create DOM Elements with podcast search results
   var generateList = function(searchResults){
     var $el = $("<div/>");
     $.each(searchResults, function(index, podcast){
       console.log(podcast);
-      var $preview = "<div class='podcastEntry " + podcast.collectionId + "'>"
+      var $preview = "<div class='podcastEntry " + podcast.collectionId + "'>";
       $preview += "<p>" + podcast.artistName + "</p>";
       $preview += "<p>" + podcast.collectionName + "</p>";
       $preview += "<p class='hide feedUrl'>" + podcast.feedUrl + "</p>"
