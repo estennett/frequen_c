@@ -41,7 +41,7 @@ app.use(function(req, res, next){
 })
 
 app.get('/', function(req, res){
-  res.render('index.html');
+  res.render('index.hbs');
 });
 
 function authenticatedUser(req, res, next) {
