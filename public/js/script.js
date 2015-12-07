@@ -4,5 +4,6 @@ $(document).ready(function(){
       var view = new FrequencyView(frequency)
       // view.render(); only displays one frequency with this added?
     })
+    var show = new FrequencyShow(frequency)
   })
 })
