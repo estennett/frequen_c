@@ -13,7 +13,7 @@
     <div class="frequencies"></div>
     <nav class="navbar">
           <ul class = 'sign-ins'>
-          {{#if currentUser}} 
+          {{#if currentUser}}
             <a href = '/logout'> Log Out {{currentUser.local.email}}
             <li><a href="/secret">Secret page (only if authenticated)</a></li>
             {{else}}
