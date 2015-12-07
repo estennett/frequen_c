@@ -5,7 +5,7 @@ var Podcast = require('../models/podcast');
 
 
 function home(req, res) {
-  res.render('..public/index');
+  res.render('index.hbs');
 }
 
 
