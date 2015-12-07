@@ -100,8 +100,6 @@
     });
   }
 
-
-
   // Event Listeners
   $("form").submit(function(event){
     event.preventDefault();
