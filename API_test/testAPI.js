@@ -19,7 +19,8 @@
   // Use feedwind widget to show episodes
   var episodeWidget = function(podcastFeed){
     var params = {
-      rssmikle_url: podcastFeed,  rssmikle_frame_width: "500",
+      rssmikle_url: podcastFeed,
+      rssmikle_frame_width: "500",
       rssmikle_frame_height: "0",
       frame_height_by_article: "10",
       rssmikle_target: "_blank",
@@ -66,6 +67,11 @@
     return feedwind_show_widget_iframe(params, true);
   }
 
+  var pickEpisodeButton = function(){
+    console.log("Select This Episode");
+    var episodes = $(".feed_item");
+    console.log(episodes);
+  }
 
   // Create DOM Elements with podcast search results
   var generateList = function(searchResults){
@@ -87,9 +93,14 @@
     $(".podcastEntry").click(function(event){
       var div = $(event.target).closest("div");
       var feedUrl = div.find(".feedUrl").text();
-      div.append(episodeWidget(feedUrl));
+      var widget = episodeWidget(feedUrl);
+      widget += "<div style='font-size:10px; text-align:center; width:300px;'><a href='http://feed.mikle.com/' target='_blank' style='color:#CCCCCC;'>RSS Feed Widget</a></div>"
+      div.append(widget).then(pickEpisodeButton());
+      // pickEpisodeButton();
     });
   }
+
+
 
   // Event Listeners
   $("form").submit(function(event){
