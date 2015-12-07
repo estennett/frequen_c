@@ -7,11 +7,12 @@ var FrequencyView = function(frequency){
   this.$el = $("<div class =  " + frequency.id + "></div>");
   // this.$elshow = $("<div class = frequency-show></div>");
   this.render(this.frequency);
-  // $("body").append(this.$elshow);
+  var frequencyShow = $('.show');
   $(".frequencies").append(this.$el);
   $("div[class = "+this.frequency.id +"]").on("click", function(){
-    self.$el.html(self.frequencyShowTemplate(self.frequency));
-
+    frequencyShow.html(self.frequencyShowTemplate(self.frequency));
+    $('.frequencies').hide();
+    $('.show').show();
   })
 }
 
