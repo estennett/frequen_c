@@ -33,12 +33,15 @@ FrequencyView.prototype = {
   },
 
   frequencyShowTemplate: function(frequency){
+    var podcast = frequency.podcasts;
     var html = $("<div>");
     html.append("<h3>" + frequency.title + "</h3>");
-    html.append("<p> testing frequency show page </p>")
-    html.append("<p>" + frequency.podcasts + "</p>");
-    // html.append("<button class = 'create-podcast'> Create </button>");
-    // html.append("<button class = 'delete-podcast'> Delete </button>");
+    // html.append("<p>" + podcast.title+ "</p>");
+    for (var i = 0; i < podcast.length; i ++ ){
+      html.append("<p>" + podcast[i].title+ "</p>");
+    };
+    html.append("<button class = 'create-podcast'> Create </button>");
+    html.append("<button class = 'delete-podcast'> Delete </button>");
     return(html);
   }
 

@@ -2,6 +2,7 @@ var Frequency = function(info){
   this.title = info.title;
   this.genre = info.genre;
   this.id = info.id;
+  this.podcasts = info.podcasts;
 };
 
 Frequency.fetch = function(){
