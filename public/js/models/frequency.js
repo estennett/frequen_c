@@ -5,7 +5,7 @@ var Frequency = function(info){
 };
 
 Frequency.fetch = function(){
-  var request = $.getJSON("http://localhost:4000/frequencies").populate("podcasts").then(function(response){
+  var request = $.getJSON("http://localhost:4000/frequencies").then(function(response){
     var frequencies = [];
     for(var i = 0; i < response.length; i ++){
       frequencies.push(new Frequency(response[i]));
