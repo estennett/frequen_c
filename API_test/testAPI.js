@@ -36,7 +36,7 @@ $(document).ready(function() {
     $(".podcastEntry").click(function(event){
       var div = $(event.target).closest("div");
       var feedUrl = div.find(".feedUrl").text();
-      injectYahooScript(feedUrl, div);
+      injectYahooScript(feedUrl);
     });
   }
 
