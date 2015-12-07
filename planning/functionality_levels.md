@@ -33,6 +33,14 @@ Gold:
     -Comment for Podcast
     -Next and Previous buttons for Podcast view
     -Access to Archived frequencies
+
+    Views:
+    -Comment page for Frequency
+    - Edit page for comment page for Frequency
+    -Comment page for Podcast
+    - Edit page for comment page for Podcast
+    - Page for archives associated with each podcast
+
 ```
 ```
 Platinum:

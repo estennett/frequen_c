@@ -35,13 +35,17 @@ var podcast9 = new PodcastModel({title: "Kwimbee"})
 var podcast10 = new PodcastModel({title: "Blogtags"})
 var podcast11 = new PodcastModel({title: "Thoughtstorm"})
 var podcast12 = new PodcastModel({title: "Skipfire"})
+var podcast13 = new PodcastModel({title: "Laggedsite"})
+var podcast14 = new PodcastModel({title: "Roobe"})
+var podcast13 = new PodcastModel({title: "Skabberjam"})
+var podcast14 = new PodcastModel({title: "Illisum"})
 
 
 var frequencies = [history, music, crime, comedy, beverage, design, science, dance];
 var podcasts = [podcast1, podcast2, podcast3, podcast4, podcast5, podcast6, podcast7, podcast8, podcast9, podcast10, podcast11, podcast12];
 
 for( var i = 0; i < frequencies.length; i++){
-  frequencies[i].podcasts.push(podcasts[i], podcasts[i+5]);
+  frequencies[i].podcasts.push(podcasts[i], podcasts[i+2]);
   frequencies[i].save(function(err){
     if (err){
       console.log(err)
