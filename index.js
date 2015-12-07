@@ -40,9 +40,9 @@ app.use(function(req, res, next){
   next();
 })
 
-app.get('/', function(req, res){
-  res.render('index.hbs');
-});
+// app.get('/', function(req, res){
+//   res.render('index.hbs');
+// });
 
 function authenticatedUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
