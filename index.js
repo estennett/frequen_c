@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 app.use('/', require('./controllers/frequencies'));
 
 app.set('view engine', 'hbs');
-app.set("views","./views");
+app.set("views","./public/views");
 
 app.use(express.static(path.join(__dirname, 'public')));//need public directory
 app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
