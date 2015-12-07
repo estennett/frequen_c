@@ -11,5 +11,16 @@
   <body>
     <header><h1>Frequen.c</h1></header>
     <div class="frequencies"></div>
+    <nav class="navbar">
+          <ul class = 'sign-ins'>
+          <!-- {{#if currentUser}} //dont know how to do without hbs -->
+            <a href = '/logout'> Log Out {{currentUser.local.email}}
+            <li><a href="/secret">Secret page (only if authenticated)</a></li>
+            <!-- {{else}} -->
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+          <!-- {{/if}} //again don't know how to do without hbs -->
+          </ul>
+    </nav>
   </body>
 </html>

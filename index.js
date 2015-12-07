@@ -24,8 +24,21 @@ app.use(morgan('dev'));
 app.use('/', require('./controllers/frequencies'));
 
 app.set('view engine', 'hbs');
-app.use(express.static(path.join(__dirname, 'public')));//need public directory
+app.set("views","./views");
 
+app.use(express.static(path.join(__dirname, 'public')));//need public directory
+app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+require('./config/passport')(passport);
+
+//custom middleware
+app.use(function(req, res, next){
+  res.locals.currentUser = req.user
+  next();
+})
 
 app.get('/', function(req, res){
   res.render('index.html');
@@ -40,23 +53,8 @@ function authenticatedUser(req, res, next) {
 }
 
 
-router.route('/')
-  .get(staticsController.home);
-
-  router.route("/secret")
-     .get(authenticatedUser, usersController.secret)
-
-router.route('/signup')
-  .get(usersController.getSignup)
-  .post(usersController.postSignup)
-
-router.route('/login')
-  .get(usersController.getLogin)
-  .post(usersController.postLogin)
-
-router.route("/logout")
-  .get(usersController.getLogout)
-
+var routes = require('./config/routes');//all routes for passport live here
+app.use(routes);
 
 app.listen(4000, function(){
   console.log("We are up and running on port 4000!");
