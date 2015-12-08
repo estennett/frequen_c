@@ -62,6 +62,7 @@ FrequencyView.prototype = {
   podcastShowTemplate: function(podcast){
     var html = $("<div>");
     html.append("<h3>" + podcast.title + "</h3>");
+    html.append("<h4 class = 'podcast-description'>" + podcast.description + "</h3");
     html.append("<h3>" + podcast.id + "</h3>");
     return(html)
   }
