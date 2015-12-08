@@ -19,8 +19,16 @@ var PodcastSchema = new Schema(
     current : Boolean,
     comments : [CommentSchema],
     frequency : {type: ObjectId, ref: "Frequency"}
+  },
+  {
+    toObject: {virtuals: true},
+    toJSON: {virtuals: true}
   }
 );
+
+PodcastSchema.virtual("id").get(function(){
+  return this._id;
+});
 
 var FrequencySchema = new Schema(
   {
@@ -28,7 +36,6 @@ var FrequencySchema = new Schema(
     genre : String,
     podcasts : [PodcastSchema]
   },
-
   {
     toObject: {virtuals: true},
     toJSON: {virtuals: true}
