@@ -1,0 +1,59 @@
+@import "variables";
+
+header {
+  background-color: $yellow;
+
+  nav {
+    width: 50%;
+    display: inline-block;
+    float: right;
+  }
+
+  #logo {
+    width: 50%;
+
+    @media screen and (min-width: $break-small) {
+      width: 30%
+    }
+
+    @media screen and (min-width: $break-med) {
+      width: 20%
+    }
+  }
+
+  a {
+    font-color: white;
+  }
+
+  .title {
+    width: 50%;
+  }
+
+  ul {
+    padding: 4%;
+    margin: 2%;
+
+    @media screen and (min-width: $break-small) {
+      padding: 0.5%
+    }
+  }
+
+  li {
+    border: 2px solid white;
+    padding: 8%;
+    margin: 2%;
+    float: right;
+    @include border-radius(2px);
+
+    @media screen and (min-width: $break-small) {
+      padding: 6%;
+    }
+
+    @media screen and (min-width: $break-med) {
+      padding: 3%;
+    }
+  }
+
+  @media screen and (min-width: $break-small) {
+  }
+}
