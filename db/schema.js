@@ -27,13 +27,17 @@ var FrequencySchema = new Schema(
     title : String,
     genre : String,
     podcasts : [PodcastSchema]
+  },
+
+  {
+    toObject: {virtuals: true},
+    toJSON: {virtuals: true}
   }
-  //  We probably need these as per tunr_mongo_oojs example, but currently do not understand functionality
-  // {
-  //   toObject: {virtuals: true},
-  //   toJSON: {virtuals: true}
-  // }
 );
+
+FrequencySchema.virtual("id").get(function(){
+  return this._id;
+});
 
 var UserSchema = new Schema(
   {

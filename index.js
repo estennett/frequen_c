@@ -39,7 +39,7 @@ app.use(function(req, res, next){
   res.locals.currentUser = req.user
   next();
 })
-
+// old home route, moved to routes.js file
 // app.get('/', function(req, res){
 //   res.render('index.hbs');
 // });
