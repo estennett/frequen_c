@@ -1,0 +1,48 @@
+.podcastSearch {
+  text-align: center;
+
+  .podcastEntry {
+    border: 3px solid $grey;
+    color: black;
+    padding: 3%;
+
+    img {
+      border: 3px solid white;
+      @include border-radius(3px);
+    }
+  }
+}
+
+.searchForPodcast {
+  width: 75%;
+  margin: 5% auto;
+  padding: 1%;
+  border: 3px solid black;
+  @include border-radius(3px);
+
+  @media screen and (min-width: $break-med) {
+    display: inline-block;
+    width: 50%;
+    margin: 3%;
+  }
+
+  .btn {
+    padding: 2%;
+  }
+
+  label {
+    display: block;
+    font-size: 1.25rem;
+
+    @media screen and (min-width: $break-small) {
+      display: inline-block;
+    }
+  }
+
+  #genre {
+    width: 200px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+}

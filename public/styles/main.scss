@@ -3,6 +3,7 @@
 @import "footer";
 @import "frequencies";
 @import "login";
+@import "podcastSearch";
 
 body {
   font-family: $font;
@@ -18,6 +19,14 @@ a {
   color: black;
 }
 
+.btn {
+  border: none;
+  background-color: $yellow;
+  padding: 3%;
+  margin: 5% auto;
+  font-size: 1.25rem;
+}
+
 .clearfix:after {
 	visibility: hidden;
 	display: block;
@@ -25,4 +34,8 @@ a {
 	content: " ";
 	clear: both;
 	height: 0;
+}
+
+.hide {
+  display: none;
 }
