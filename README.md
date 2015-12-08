@@ -19,6 +19,7 @@ Clone this repo. Then...
 
 ```
 $ npm install
+$ node db/seeds.js
 ```
 
 ### User Stories
