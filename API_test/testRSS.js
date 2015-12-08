@@ -14,7 +14,7 @@ function handleYahooResponse(response) {
     item = response.query.results.feed.entry[i];
     text += '<li><a href="' + item.link[0].href + '">' + item.title + '</a>';
     text += '<p>' + item.summary.content + '</p></li>';
-    text += '<audio controls><source src="' + item.link[0].href + '" type="audio/ogg"><source src="' + item.link[0].href + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>'
+    text += '<audio controls><source src="' + item.link[0].href + '" type="audio/ogg"><source src="' + item.link[0].href + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
   }
   $('#episodeDisplay').html(text);
 }
