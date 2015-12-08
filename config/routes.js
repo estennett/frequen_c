@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
+var podcastsController = require('../controllers/podcasts');
 
 function authenticatedUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
@@ -42,5 +43,8 @@ router.route('/auth/twitter/callback')
     successRedirect: '/',
     failureRedirect: '/login'
   }));
+
+router.route('/podcast_search')
+  .get(podcastsController.getPodcastSearch)
 
 module.exports = router
