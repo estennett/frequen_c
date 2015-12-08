@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300italic,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300italic,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300italic,900);
 header {
   background-color: #e7bb41; }
   header nav {
@@ -44,6 +47,29 @@ footer {
   color: white; }
   footer li {
     padding: 4%; }
+
+.frequencies {
+  padding: 3%; }
+
+.frequencies > div {
+  display: inline-block;
+  width: 90%;
+  border: 2px solid black;
+  margin: 1%;
+  padding: 1%;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px; }
+  @media screen and (min-width: 500px) {
+    .frequencies > div {
+      width: 40%; } }
+  @media screen and (min-width: 920px) {
+    .frequencies > div {
+      width: 25%; } }
+
+body {
+  font-family: "Roboto", sans-serif; }
 
 li {
   list-style-type: none;

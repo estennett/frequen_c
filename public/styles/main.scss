@@ -1,5 +1,11 @@
+@import "variables";
 @import "header";
 @import "footer";
+@import "frequencies";
+
+body {
+  font-family: $font;
+}
 
 li {
   list-style-type: none;
