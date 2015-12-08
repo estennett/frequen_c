@@ -1,1 +1,11 @@
 $yellow: #e7bb41;
+
+$break-small: 500px;
+$break-med: 920px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}

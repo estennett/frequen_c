@@ -1,7 +1,56 @@
 header {
   background-color: #e7bb41; }
+  header nav {
+    width: 50%;
+    display: inline-block;
+    float: right; }
+  header #logo {
+    width: 50%; }
+    @media screen and (min-width: 500px) {
+      header #logo {
+        width: 30%; } }
+    @media screen and (min-width: 920px) {
+      header #logo {
+        width: 20%; } }
+  header a {
+    font-color: white; }
+  header .title {
+    width: 50%; }
+  header ul {
+    padding: 4%;
+    margin: 2%; }
+    @media screen and (min-width: 500px) {
+      header ul {
+        padding: 0.5%; } }
+  header li {
+    border: 2px solid white;
+    padding: 8%;
+    margin: 2%;
+    float: right;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px; }
+    @media screen and (min-width: 500px) {
+      header li {
+        padding: 6%; } }
+    @media screen and (min-width: 920px) {
+      header li {
+        padding: 3%; } }
 
-#logo {
-  width: 30%; }
+footer {
+  text-align: center;
+  background-color: black;
+  color: white; }
+  footer li {
+    padding: 4%; }
+
+li {
+  list-style-type: none;
+  display: inline-block; }
+
+a {
+  text-decoration: none;
+  color: black; }
 
 /*# sourceMappingURL=main.css.map */
