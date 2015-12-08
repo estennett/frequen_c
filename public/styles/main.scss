@@ -2,6 +2,7 @@
 @import "header";
 @import "footer";
 @import "frequencies";
+@import "login";
 
 body {
   font-family: $font;
@@ -15,4 +16,13 @@ li {
 a {
   text-decoration: none;
   color: black;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
 }

@@ -68,6 +68,43 @@ footer {
     .frequencies > div {
       width: 25%; } }
 
+.signup_login_container {
+  text-align: center; }
+  .signup_login_container .form_container, .signup_login_container .twitter {
+    width: 75%;
+    margin: 5% auto;
+    padding: 2%;
+    border: 3px solid black;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px; }
+    @media screen and (min-width: 920px) {
+      .signup_login_container .form_container, .signup_login_container .twitter {
+        display: inline-block;
+        width: 35%;
+        height: 250px;
+        float: left;
+        margin: 3%; } }
+  .signup_login_container label {
+    display: inline-block;
+    width: 100px; }
+  .signup_login_container .form-group {
+    margin: 2% auto; }
+  .signup_login_container .btn {
+    border: none;
+    background-color: #e7bb41;
+    padding: 3%;
+    margin: 5% auto;
+    font-size: 1.25rem; }
+  .signup_login_container .twitter:hover {
+    background-color: #e7bb41; }
+  .signup_login_container #twitter-login {
+    width: 20%; }
+    @media screen and (min-width: 920px) {
+      .signup_login_container #twitter-login {
+        margin-top: 15%; } }
+
 body {
   font-family: "Roboto", sans-serif; }
 
@@ -78,5 +115,13 @@ li {
 a {
   text-decoration: none;
   color: black; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
 
 /*# sourceMappingURL=main.css.map */
