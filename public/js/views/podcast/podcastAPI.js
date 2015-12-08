@@ -43,7 +43,7 @@ $(document).ready(function() {
     $.each(searchResults, function(index, podcast){
       console.log(podcast);
       var $preview = "<div class='podcastEntry " + podcast.collectionId + "'>";
-      $preview += "<p>" + podcast.artistName + "</p>";
+      $preview += "<h3 class='artistName'>" + podcast.artistName + "</h3>";
       $preview += "<p>" + podcast.collectionName + "</p>";
       $preview += "<p class='hide feedUrl'>" + podcast.feedUrl + "</p>"
       $preview += "<p>" + podcast.genres.join(", ") + "</p>";

@@ -2,13 +2,32 @@
   text-align: center;
 
   .podcastEntry {
-    border: 3px solid $grey;
+    border: 3px solid $yellow;
+    width: 90%;
     color: black;
-    padding: 3%;
+    padding: 0;
+    margin: 2% auto;
+    @include border-radius(3px);
 
     img {
-      border: 3px solid white;
       @include border-radius(3px);
+    }
+
+    .artistName {
+      background-color: $yellow;
+      margin-top: 0;
+      padding: 2%;
+      color: black;
+    }
+
+    @media screen and (min-width: $break-small) {
+      width: 75%;
+    }
+
+    @media screen and (min-width: $break-med) {
+      display: inline-block;
+      margin: 2%;
+      width: 40%;
     }
   }
 }
