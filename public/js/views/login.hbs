@@ -17,15 +17,15 @@
         <img id="logo" src="img/frequenc_logo.jpg" alt="frequen.c logo">
       </a>
       <nav class="navbar">
-            <ul class = 'sign-ins'>
-            {{#if currentUser}}
-              <a href = '/logout'> Log Out {{currentUser.local.email}}
-              <li><a href="/secret">Secret page (only if authenticated)</a></li>
-              {{else}}
-              <li><a href="/login">Login</a></li>
-              <li><a href="/signup">Signup</a></li>
-            {{/if}}
-            </ul>
+        <ul class='sign-ins'>
+        {{#if currentUser}}
+          <li><a href='/logout'> Log Out {{currentUser.local.email}}</a></li>
+          <li><a href="/secret">Secret page (only if authenticated)</a></li>
+          {{else}}
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Signup</a></li>
+        {{/if}}
+        </ul>
       </nav>
     </header>
 
