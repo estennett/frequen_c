@@ -14,17 +14,27 @@ var FrequencyView = function(frequency){
     frequencyShow.html(self.frequencyShowTemplate(self.frequency));
     $('.frequencies').hide();
     $('.show').show();
-    $(".5665cae5e8e6e21cf97a89f1").on("click", function(){
-      console.log("HIIIIII")
+
+    podcast = self.frequency.podcasts;
+    $.each( podcast, function( index, pod ){
+      // 5665cae5e8e6e21cf97a89f1
+
+      $("div[class = "+ pod.id +"]").on("click", function(){
+        console.log(pod.id)
+      })
     })
+
+
+    // var podcast = self.frequency.podcasts;
+    // $("div[class = "+ podcast.id +"]").on("click", function(){
+    //   console.log("HIIIIII")
+    // })
+
+
+
   })
 
   //add click event for podcasts displayed in frequency show
-  var podcast = frequency.podcasts;
-
-  function logIt(){
-    console.log("hi");
-  }
 
   // $.each( podcast, function( index, pod ){
     // 5665cae5e8e6e21cf97a89f1
