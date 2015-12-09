@@ -30,6 +30,11 @@ FrequencyView.prototype = {
     $("div[class = "+ this.frequency.id +"]").on("click", function(){
       self.renderFrequencyShow();
     })
+
+    $(".newFrequency").on("click", function(){
+      self.renderNewFrequency();
+    })
+
     $('.showPodcast').hide();
     $('.frequencyShow').hide();
     $('.editFrequency').remove();
@@ -39,6 +44,35 @@ FrequencyView.prototype = {
   render: function(frequency){
     var self = this;
       self.$frequencyDiv.html(self.frequencyTemplate(self.frequency));
+  },
+  renderNewFrequency(frequency){
+    var self = this;
+
+    self.$newFrequency = $("<div class=newFrequencyForm></div>")
+      var footer = $('footer');
+      $(footer).before(this.$newFrequency);
+
+    //shows the edit view
+    self.$newFrequency.replaceWith(self.frequencyNewTemplate(this.frequency));
+    $('.home').hide();
+    $('.editFrequency').hide();
+    $('.newFrequencyForm').show();
+
+    //click event to update a frequency in the edit view
+    $(".createFrequency").on("click", function() {
+      console.log("hi")
+      self.createFrequency();
+    });
+  },
+  createFrequency: function() {
+    var self = this;
+    var data = {  title: $('input[name = title]').val(),
+                  genre: $('input[name = genre]').val()};
+    this.frequency.create(data).then(function(frequency) {
+      console.log(frequency)
+      self.renderFrequencyShow();
+       $('.newFrequencyForm').hide();
+     });
   },
 //*
   frequencyTemplate: function(frequency){
@@ -115,7 +149,7 @@ FrequencyView.prototype = {
     $(".deleteFrequency").on("click", function() {
       self.frequency.destroy().then(function() {
         self.renderHomeView(self.frequency);
-        $('.editFrequency').hide();
+        $('.editFrequency').remove();
         $('.frequencyShow').hide();
         $('.home').show;
       })
@@ -142,30 +176,11 @@ FrequencyView.prototype = {
     return(html);
   },
 
-  // renderNewFrequency: function() {
-  //   var self = this;
-  //   //if the .$editFrequency div doesn't exist already, make it
-  //   if(!self.$createNewFrequency){
-  //     this.$createNewFrequency = $("<div class='createNewFrequency'>")
-  //     var footer = $('footer');
-  //     $(footer).before(this.$createNewFrequency);
-  //   }
-  //
-  //   self.$createNewFrequency.With(self.newFrequencyTemplate());
-  //   $("createFrequency").on("click", function(){
-  //   })
-  // },
-  //
-  // newFrequencyTemplate: function() {
-  //   var html = $("<div class='newFrequency'>");
-  //   html.append("<input name='title'>");
-  //   html.append("<input name='genre'>");
-  //   html.append("<button class='createFrequency'>Create Frequency</button>");
-  //   return(html);
-  // },
-
+  frequencyNewTemplate: function(){
+    var html = $("<div class=newFrequencyForm></div>");
+    html.append("<input name='title'>");
+    html.append("<input name='genre'>");
+    html.append("<button class='createFrequency'>Create Frequency</button>");
+    return(html);
+  }
 }
-
-    //
-    // //using another view in this file
-    // var testView = new TestView();

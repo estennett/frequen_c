@@ -36,6 +36,22 @@ Frequency.prototype = {
     return request;
   },
 
+  create: function(frequencyData){
+    console.log(frequencyData)
+    var self = this;
+    var url = "http://127.0.0.1:4000/frequencies/" + this.id;
+    var request = $.ajax({
+      url: url,
+      method: "post",
+      data: JSON.stringify(frequencyData),
+      contentType: 'application/json'
+    }).then(
+      function(newFrequencyInfo){
+        self.relaod
+      }
+    )
+  },
+
   destroy: function(){
     var url = "http://127.0.0.1:4000/frequencies/" + this.id;
     var request = $.ajax( {url: url, method: "delete"} );
