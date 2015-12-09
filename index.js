@@ -59,6 +59,10 @@ function authenticatedUser(req, res, next) {
 var routes = require('./config/routes');//all routes for passport live here
 app.use(routes);
 
+console.log(process.env.consumerKey);
+console.log(process.env.consumerSecret);
+console.log(process.env.callbackUrl);
+
 app.listen(process.env.PORT || 4000, function(){
   console.log("We are up and running!");
 });
