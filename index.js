@@ -59,6 +59,6 @@ function authenticatedUser(req, res, next) {
 var routes = require('./config/routes');//all routes for passport live here
 app.use(routes);
 
-app.listen(4000, function(){
+app.listen(process.env.PORT || 4000, function(){
   console.log("We are up and running on port 4000!");
 });
