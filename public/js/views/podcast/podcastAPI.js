@@ -10,12 +10,39 @@ var injectYahooScript = function(feed) {
 var handleYahooResponse = function(response) {
   console.log(response);
   var text = '', item;
+
+  text += "<h3>" + response.query.results.feed.title + "</h3>";
+
+  if (response.query.results.feed.summary) {
+    text += "<p>" + response.query.results.feed.summary.content + "</p>";
+  }
+
+  text += "<h4>Recent Episodes</h4><div class='individual_episodes'>";
+
   for (var i = 0, k = 10; i < k; i++) {
     item = response.query.results.feed.entry[i];
-    text += '<li><a href="' + item.link[0].href + '">' + item.title + '</a>';
-    text += '<p>' + item.summary.content + '</p></li>';
-    text += '<audio controls><source src="' + item.link[0].href + '" type="audio/ogg"><source src="' + item.link[0].href + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
+
+    text += "<div class='episode'>"
+    if (item.link[0].href) {
+      text += '<a href="' + item.link[0].href + '">' + item.title + '</a>';
+      text += '<audio controls><source src="' + item.link[0].href + '" type="audio/ogg"><source src="' + item.link[0].href + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
+    } else if (item.link.href) {
+      text += '<li><a href="' + item.link.href + '">' + item.title + '</a>';
+      text += '<audio controls><source src="' + item.link.href + '" type="audio/ogg"><source src="' + item.link.href + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
+    } else if (item.link[1].href) {
+      text += '<li><a href="' + item.link[1].href + '">' + item.title + '</a>';
+      text += '<audio controls><source src="' + item.link[1].href + '" type="audio/ogg"><source src="' + item.link[1].href + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
+    }
+
+    if (item.summary.content) {
+      text += '<p>' + item.summary.content + '</p>';
+    }
+
+    text += "</div>"
   }
+
+  text += "</div>"
+
   $('#podcastDisplay').html("");
   $('#episodeDisplay').html(text);
 }

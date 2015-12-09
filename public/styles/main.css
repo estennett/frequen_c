@@ -157,6 +157,9 @@ footer {
     height: 40px;
     font-size: 1.25rem; }
 
+.episode {
+  display: flex; }
+
 body {
   font-family: "Roboto", sans-serif; }
 
