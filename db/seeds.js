@@ -1,6 +1,7 @@
 require("./schema");
 var mongoose = require("mongoose");
-var conn = mongoose.connect("mongodb://localhost/frequency");
+var mongodbUri = 'mongodb://localhost/frequency';
+var conn = mongoose.connect(process.env.MONGOLAB_URI || mongodbUri);
 var FrequencyModel = require("../models/frequency")
 var PodcastModel = require("../models/podcast")
 

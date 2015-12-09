@@ -1,7 +1,7 @@
 var LocalStrategy = require("passport-local").Strategy
 var TwitterStrategy = require('passport-twitter').Strategy;
 var User = require("../models/user");
-var env = require('../env');
+// var env = require('../env');
 
 module.exports = function(passport){
     passport.serializeUser(function(user, callback) {
@@ -57,9 +57,9 @@ module.exports = function(passport){
 
 
   passport.use('twitter', new TwitterStrategy({
-      consumerKey: env.consumerKey,
-      consumerSecret: env.consumerSecret,
-      callbackUrl: env.callbackUrl
+      consumerKey: process.env.consumerKey,
+      consumerSecret: process.env.consumerSecret,
+      callbackUrl: process.env.callbackUrl
     }, function(token, secret, profile, done){
       process.nextTick(function(){
         User.findOne({'twitter.id': profile.id}, function(err, user){
