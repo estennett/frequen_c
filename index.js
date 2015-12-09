@@ -13,6 +13,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var staticsController = require('./controllers/statics');
 var usersController = require('./controllers/users');
+var uriUtil = require('mongodb-uri')
 
 var mongodbUri = 'mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs';
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
