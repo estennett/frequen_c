@@ -47,11 +47,13 @@ footer {
   color: white; }
   footer li {
     padding: 4%; }
+  footer a {
+    color: white; }
 
-.home {
+.frequencies {
   padding: 3%; }
 
-.home > div {
+.frequencies > div {
   display: inline-block;
   width: 90%;
   border: 2px solid black;
@@ -62,11 +64,14 @@ footer {
   -ms-border-radius: 2px;
   border-radius: 2px; }
   @media screen and (min-width: 500px) {
-    .home > div {
+    .frequencies > div {
       width: 40%; } }
   @media screen and (min-width: 920px) {
-    .home > div {
+    .frequencies > div {
       width: 25%; } }
+  .frequencies > div:hover {
+    background-color: #59b49d;
+    cursor: pointer; }
 
 .signup_login_container {
   text-align: center; }
