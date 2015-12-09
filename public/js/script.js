@@ -1,10 +1,9 @@
 $(document).ready(function(){
-
-
-    var homeSetup = new HomeSetup();
+    var pageSetup = new PageSetup();
 
     //shows home div
     $('.home').show();
+
 
     Frequency.fetch().then(function(frequencies){
       frequencies.forEach(function(frequency){

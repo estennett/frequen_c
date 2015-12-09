@@ -1,27 +1,24 @@
-// View single frequency page
-// Contains list of podcasts associated with this frequency (current + archived)
-
 var FrequencyView = function(frequency){
 
   this.frequency = frequency;
   var self = this;
 
-
+  //add divs that contain individual frequency names
   this.$frequencyDiv = $("<div class =  " + frequency.id + "></div>");
   this.render(this.frequency);
   $(".home").append(this.$frequencyDiv);
+  //using another view in this file
+  var testView = new TestView();
 
-//click event for showing the FREQUENCY VIEW... hides .frequency DIV and shows .show DIV
+  //click event for showing the FREQUENCY VIEW... hides .frequency DIV and shows .show DIV
   $("div[class = "+ this.frequency.id +"]").on("click", function(){
-    frequencyShow.html(self.frequencyShowTemplate(self.frequency));
-    $('.frequencies').hide();
-    $('.show').show();
+    self.renderFrequencyShow();
 
     $('.edit-frequency-button').on('click', function(){
         self.renderEditForm();
     })
 
-//click event for showing the PODCAST VIEW... hides .show DIV and shows .podcast show DIV
+    //click event for showing the PODCAST VIEW... hides .show DIV and shows .podcast show DIV
     podcast = self.frequency.podcasts;
     $.each( podcast, function( index, pod ){
       $("div[class = "+ pod.id +"]").on("click", function(){
@@ -37,15 +34,22 @@ var FrequencyView = function(frequency){
 FrequencyView.prototype = {
   render: function(frequency){
     var self = this;
-
     self.$frequencyDiv.html(self.frequencyTemplate(self.frequency));
   },
-//This displays all the frequencies on the homepage as a list
+
   frequencyTemplate: function(frequency){
     var html = $("<div>");
     html.append("<h3>" + frequency.title + "</h3>");
     return(html);
   },
+
+  renderFrequencyShow: function(){
+    var self = this;
+    $('.frequencyShow').html(self.frequencyShowTemplate(self.frequency));
+    $('.home').hide();
+    $('.frequencyShow').show();
+  },
+
 //This displays when in the .show div to show an individual FREQUENCY
   frequencyShowTemplate: function(frequency){
     var podcast = frequency.podcasts;
@@ -98,7 +102,7 @@ FrequencyView.prototype = {
     this.frequency.update(data).then(function() {
       //may need to call frequencyShowTemplate
      $('.editFrequency').hide();
-     $('.show').show();
+     self.renderFrequencyShow();
      console.log()
      });
   },

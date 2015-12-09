@@ -1,4 +1,4 @@
-var HomeSetup = function(){
+var PageSetup = function(){
 
 //puts in a show div
   this.$show = $("<div class= 'home' style= 'display: none' ></div>")
