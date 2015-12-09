@@ -1,8 +1,5 @@
 $(document).ready(function(){
-
-
     var homeSetup = new HomeSetup();
-
     //shows home div
     $('.home').show();
 
