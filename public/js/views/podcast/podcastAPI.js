@@ -1,5 +1,5 @@
-var episodeHeading = function(episode){
-  var heading = "<h3>" + episode.title + ": Recent Episodes</h3>"
+var episodeHeading = function(episodes){
+  var heading = "<h3>" + episodes.title + ": Recent Episodes</h3>"
   return heading;
 }
 
@@ -10,18 +10,25 @@ var episodeAudio = function(episodeTitle, audioLink) {
   return audio;
 }
 
-var episodeEach = function(episode){
+var episodeEach = function(episodes, podcastName){
   var segment = "<div class='individual_episodes'>";
 
   for (var i = 0, k = 10; i < k; i++) {
-    item = episode.entry[i];
+    item = episodes.entry[i];
+
     segment += "<div class='episode'>"
     if (item.link[1].href) {
+      var modelTest1 = new EpisodePreview(item.title, item.link[1].href, podcastName);
+      console.log(modelTest1);
       segment += episodeAudio(item.title, item.link[1].href);
     } else if (item.link[0].href) {
+      var modelTest2 = new EpisodePreview(item.title, item.link[0].href, podcastName);
+      console.log(modelTest2);
       segment += episodeAudio(item.title, item.link[0].href);
     } else if (item.link.href) {
-      segment += episodeAudio(item.title, item.link.href);
+      var modelTest3 = new EpisodePreview(item.title, item.link.href, podcastName);
+      console.log(modelTest3);
+      segment += episodeAudio(item.title, item.link.href, podcastName);
     }
     segment += "<button class='btn'>Add to Frequency</button></div>"
   }
@@ -35,9 +42,9 @@ var episodeEach = function(episode){
 // Callback for YQL json response
 var handleYahooResponse = function(response) {
   console.log(response);
-  var episode = response.query.results.feed;
-  var text = episodeHeading(episode);
-  text += episodeEach(episode);
+  var episodes = response.query.results.feed;
+  var text = episodeHeading(episodes);
+  text += episodeEach(episodes, episodes.title);
   text += "</div>";
 
   $('#podcastDisplay').html("");
