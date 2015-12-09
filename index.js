@@ -19,8 +19,8 @@ var favicon = require('serve-favicon');
 
 // var mongodbUri = 'mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs';
 // var mongooseUri = uriUtil.formatMongoose(mongodbUri);
-mongoose.connect(process.env.MONGOLAB_URI);
-// mongoose.connect('mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs');//we will have a headache when we deploy to heroku
+// mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect('mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs');//we will have a headache when we deploy to heroku
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
