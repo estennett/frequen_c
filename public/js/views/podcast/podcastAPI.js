@@ -11,13 +11,13 @@ var handleYahooResponse = function(response) {
   console.log(response);
   var text = '', item;
 
-  text += "<h3>" + response.query.results.feed.title + "</h3>";
+  text += "<h3>" + response.query.results.feed.title + ": Recent Episodes</h3>";
 
   if (response.query.results.feed.summary) {
-    text += "<p>" + response.query.results.feed.summary.content + "</p>";
+    text += "<p class='podcast_description'>" + response.query.results.feed.summary.content + "</p>";
   }
 
-  text += "<h4>Recent Episodes</h4><div class='individual_episodes'>";
+  text += "<div class='individual_episodes'>";
 
   for (var i = 0, k = 10; i < k; i++) {
     item = response.query.results.feed.entry[i];
@@ -34,11 +34,7 @@ var handleYahooResponse = function(response) {
       text += '<audio controls><source src="' + item.link[1].href + '" type="audio/ogg"><source src="' + item.link[1].href + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
     }
 
-    if (item.summary.content) {
-      text += '<p>' + item.summary.content + '</p>';
-    }
-
-    text += "</div>"
+    text += "<button class='btn'>Add to Frequency</button></div>"
   }
 
   text += "</div>"

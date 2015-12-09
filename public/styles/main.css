@@ -157,8 +157,29 @@ footer {
     height: 40px;
     font-size: 1.25rem; }
 
+.podcast_description {
+  width: 80%;
+  margin: 3% auto; }
+
 .episode {
-  display: flex; }
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  padding: 3%;
+  margin: 0 auto;
+  width: 80%;
+  border: 1px solid #eee; }
+  .episode a {
+    display: block; }
+  .episode audio {
+    margin: 1.5%; }
+  .episode .btn {
+    font-size: 1rem;
+    padding: 4%;
+    margin: 0.5% auto; }
+
+.episode:nth-child(even) {
+  background-color: #eee; }
 
 body {
   font-family: "Roboto", sans-serif; }

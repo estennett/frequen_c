@@ -66,6 +66,36 @@
 
 }
 
+.podcast_description {
+  width: 80%;
+  margin: 3% auto;
+
+}
+
 .episode {
   display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  padding: 3%;
+  margin: 0 auto;
+  width: 80%;
+  border: 1px solid $grey;
+
+  a {
+    display: block;
+  }
+
+  audio {
+    margin: 1.5%;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 4%;
+    margin: 0.5% auto;
+  }
+}
+
+.episode:nth-child(even) {
+  background-color: $grey;
 }
