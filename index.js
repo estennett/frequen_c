@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+require('dotenv').load();
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
@@ -18,8 +19,8 @@ var favicon = require('serve-favicon');
 
 // var mongodbUri = 'mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs';
 // var mongooseUri = uriUtil.formatMongoose(mongodbUri);
-
-mongoose.connect('mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs');//we will have a headache when we deploy to heroku
+mongoose.connect(process.env.MONGOLAB_URI);
+// mongoose.connect('mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs');//we will have a headache when we deploy to heroku
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
@@ -32,7 +33,7 @@ app.set('view engine', 'hbs');
 app.set("views","./public/js/views");
 
 app.use(express.static(path.join(__dirname, 'public')));//need public directory
-// app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
+app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -56,7 +57,6 @@ function authenticatedUser(req, res, next) {
   // Otherwise the request is always redirected to the home page
   res.redirect('/');
 }
-
 
 var routes = require('./config/routes');//all routes for passport live here
 app.use(routes);
