@@ -54,8 +54,8 @@ FrequencyView.prototype = {
     for (var i = 0; i < podcast.length; i ++ ){
       html.append("<div class =  " + podcast[i].id + ">" + podcast[i].title + "</div>");
     };
-    html.append("<button class = 'create-podcast'> Create </button>");
-    html.append("<button class = 'delete-podcast'> Delete </button>");
+    html.append("<button class = 'btn'> Create </button>");
+    html.append("<button class = 'btn'> Delete </button>");
     return(html);
   },
 //

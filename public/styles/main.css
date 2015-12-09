@@ -48,10 +48,10 @@ footer {
   footer li {
     padding: 4%; }
 
-.frequencies {
+.home {
   padding: 3%; }
 
-.frequencies > div {
+.home > div {
   display: inline-block;
   width: 90%;
   border: 2px solid black;
@@ -62,10 +62,10 @@ footer {
   -ms-border-radius: 2px;
   border-radius: 2px; }
   @media screen and (min-width: 500px) {
-    .frequencies > div {
+    .home > div {
       width: 40%; } }
   @media screen and (min-width: 920px) {
-    .frequencies > div {
+    .home > div {
       width: 25%; } }
 
 .signup_login_container {
