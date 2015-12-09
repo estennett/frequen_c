@@ -17,3 +17,34 @@ Frequency.fetch = function(){
   });
   return request;
 };
+
+Frequency.prototype = {
+
+  update: function(frequencyData) {
+    var self = this;
+    var url = "http://127.0.0.1:4000/frequencies/" + this.id;
+    var request = $.ajax({
+      url: url,
+      method: "patch",
+      data: JSON.stringify(frequencyData),
+      contentType : 'application/json'
+    }).then(
+      function(updatedFrequencyInfo) {
+        self.reload(updatedFrequencyInfo);
+      }
+    );
+    return request;
+  },
+
+  destroy: function(){
+    var url = "http://127.0.0.1:4000/frequencies/" + this.id;
+    var request = $.ajax( {url: url, method: "delete"} );
+    return request;
+  },
+
+  reload: function(newData){
+    for(var attrname in newData) {
+      this[attrname] = newData[attrname];
+    }
+  }
+}
