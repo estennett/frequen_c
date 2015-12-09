@@ -14,24 +14,25 @@ FrequencyView.prototype = {
 
 //*
   renderHomeView: function(frequency){
+    console.log("home")
     var self = this;
     //add divs that contain individual frequency names
     if(!self.$frequencyDiv){
-    this.$frequencyDiv = $("<div class = " + self.frequency.id + "></div>");
-  }
-    this.render(this.frequency);
-    $(".home").append(this.$frequencyDiv);
+      this.$frequencyDiv = $("<div class = " + self.frequency.id + "></div>");
+      this.render(this.frequency);
+      $(".home").append(this.$frequencyDiv);
+    }else{
+      this.render(this.frequency);
+      $(".home").append(this.$frequencyDiv);
+    }
 
     //click event for showing the FREQUENCY VIEW... hides .frequency DIV and shows .show DIV
-    if(!$("div[class = "+ this.frequency.id +"]").on("click", function(){
+    $("div[class = "+ this.frequency.id +"]").on("click", function(){
       self.renderFrequencyShow();
-    })){}$("div[class = "+ this.frequency.id +"]").on("click", function(){
-      self.renderFrequencyShow();
-    }
     })
     $('.showPodcast').hide();
     $('.frequencyShow').hide();
-    $('.editFrequency').hide();
+    $('.editFrequency').remove();
     $('.home').show();
   },
 //*
@@ -69,7 +70,7 @@ FrequencyView.prototype = {
       })
     })
   },
-
+//*
 //This displays when in the .show div to show an individual FREQUENCY
   frequencyShowTemplate: function(frequency){
     var podcast = frequency.podcasts;
@@ -94,9 +95,10 @@ FrequencyView.prototype = {
 //* this creates a new div .editFrequency and puts in click functionality for edit and delete
   renderEditForm: function() {
     var self = this;
+
     //if the .$editFrequency div doesn't exist already, make it
     if(!self.$editFrequency){
-      this.$editFrequency = $("<div class='editFrequency'>")
+      this.$editFrequency = $("<div class=editFrequency>")
       var footer = $('footer');
       $(footer).before(this.$editFrequency);
     }
@@ -111,7 +113,12 @@ FrequencyView.prototype = {
     });
 
     $(".deleteFrequency").on("click", function() {
-      self.frequency.destroy().then(function() { console.log("great it is gone")});
+      self.frequency.destroy().then(function() {
+        self.renderHomeView(self.frequency);
+        $('.editFrequency').hide();
+        $('.frequencyShow').hide();
+        $('.home').show;
+      })
     });
   },
 //*
@@ -126,7 +133,8 @@ FrequencyView.prototype = {
   },
 
   frequencyEditTemplate: function(frequency) {
-    var html = $("<div class='editFrequency'>");
+
+    var html = $("<div class=editFrequency></div>");
     html.append("<input name='title' value='" + frequency.title + "'>");
     html.append("<input name='genre' value='" + frequency.genre + "'>");
     html.append("<button class='updateFrequency'>Update Frequency</button>");
