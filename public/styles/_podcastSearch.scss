@@ -1,0 +1,117 @@
+.podcastSearch {
+  text-align: center;
+
+  .podcastEntry {
+    text-align: left;
+    img {
+      @include border-radius(3px);
+    }
+
+    .artistName {
+      width: 60%;
+      margin-top: 0;
+      padding: 2%;
+      color: black;
+
+      @media screen and (min-width: $break-med) {
+        width: 30%;
+      }
+    }
+
+    .genres {
+      width: 100%;
+      font-style: italic;
+
+      @media screen and (min-width: $break-med) {
+        width: 30%;
+      }
+    }
+  }
+}
+
+.searchForPodcast {
+  width: 75%;
+  margin: 5% auto;
+  padding: 1%;
+  border: 3px solid black;
+  @include border-radius(3px);
+
+  @media screen and (min-width: $break-med) {
+    display: inline-block;
+    width: 50%;
+    margin: 3%;
+  }
+
+  .btn {
+    padding: 2%;
+  }
+
+  label {
+    display: block;
+    font-size: 1.25rem;
+
+    @media screen and (min-width: $break-small) {
+      display: inline-block;
+    }
+  }
+
+  #genre {
+    width: 200px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
+
+.podcast_description {
+  width: 80%;
+  margin: 3% auto;
+}
+
+
+.episode, .podcastEntry {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  padding: 3%;
+  margin: 0 auto;
+  width: 80%;
+  border: 1px solid $grey;
+
+  @media screen and (min-width: $break-small) {
+    justify-content: space-between;
+    padding: 2%;
+  }
+
+  @media screen and (min-width: $break-med) {
+    align-content: flex-end;
+    justify-content: flex-end;
+    flex-flow: row nowrap;
+    padding: 1%;
+  }
+
+  audio {
+    margin: 1.5% auto;
+  }
+
+  a {
+    width: 300px;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 4%;
+    margin: 0.5% auto;
+
+    @media screen and (min-width: $break-small) {
+      padding: 2%;
+    }
+
+    @media screen and (min-width: $break-med) {
+      padding: 1.5%;
+    }
+  }
+}
+
+.episode:nth-child(even), .podcastEntry:nth-child(even) {
+  background-color: $grey;
+}

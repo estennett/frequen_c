@@ -10,6 +10,7 @@
     <script src="js/views/frequency/frequencyView.js"></script>
     <script src="js/views/frequency/frequencyShow.js"></script>
     <script src="js/views/podcast/podcastShow.js"></script>
+    <script src="js/views/podcast/podcastAPI.js"></script>
     <script src="js/script.js"></script>
   </head>
   <body>
@@ -29,7 +30,23 @@
         </ul>
       </nav>
     </header>
-    <div class="frequencies"></div>
+
+    <div class="podcastSearch clearfix">
+      <div class="searchForPodcast">
+        <form>
+          <label for="genre">Search for Podcasts:</label>
+          <input type="text" id="genre">
+          <input type="submit" value="Search" id="genreSubmit" class="btn">
+        </form>
+      </div>
+
+      <div id="podcastDisplay"></div>
+
+      <div id="episodeDisplay"></div>
+    </div>
+
+
+
     <footer>
       <ul>
         <li>Home</li>
