@@ -15,7 +15,7 @@ var staticsController = require('./controllers/statics');
 var usersController = require('./controllers/users');
 
 
-mongoose.connect('mongodb://localhost/frequency');//we will have a headache when we deploy to heroku
+mongoose.connect('mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs');//we will have a headache when we deploy to heroku
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
