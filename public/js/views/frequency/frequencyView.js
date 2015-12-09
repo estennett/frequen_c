@@ -5,17 +5,11 @@ var FrequencyView = function(frequency){
 
   this.frequency = frequency;
   var self = this;
-  this.$el = $("<div class =  " + frequency.id + "></div>");
-  this.$elshow = $("<div class = frequency-show></div>");
-  this.render(this.frequency);
-  var frequencyShow = $('.show');
-  $(".frequencies").append(this.$el);
 
-  $(".newFrequency").on("click", function(){
-    $('.frequencies').hide();
-    self.renderNewFrequency();
-    $('.createNewFrequency').show();
-  });
+
+  this.$frequencyDiv = $("<div class =  " + frequency.id + "></div>");
+  this.render(this.frequency);
+  $(".home").append(this.$frequencyDiv);
 
 //click event for showing the FREQUENCY VIEW... hides .frequency DIV and shows .show DIV
   $("div[class = "+ this.frequency.id +"]").on("click", function(){
@@ -43,15 +37,13 @@ var FrequencyView = function(frequency){
 FrequencyView.prototype = {
   render: function(frequency){
     var self = this;
-    self.$el.html(self.frequencyTemplate(self.frequency));
+
+    self.$frequencyDiv.html(self.frequencyTemplate(self.frequency));
   },
 //This displays all the frequencies on the homepage as a list
   frequencyTemplate: function(frequency){
     var html = $("<div>");
     html.append("<h3>" + frequency.title + "</h3>");
-    // html.append("<p>" + frequency.podcasts + "</p>");
-    // html.append("<button class = 'create-podcast'> Create </button>");
-    // html.append("<button class = 'delete-podcast'> Delete </button>");
     return(html);
   },
 //This displays when in the .show div to show an individual FREQUENCY
