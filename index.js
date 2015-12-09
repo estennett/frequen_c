@@ -14,6 +14,7 @@ var session = require('express-session');
 var staticsController = require('./controllers/statics');
 var usersController = require('./controllers/users');
 var uriUtil = require('mongodb-uri')
+var favicon = require('serve-favicon');
 
 // var mongodbUri = 'mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs';
 // var mongooseUri = uriUtil.formatMongoose(mongodbUri);
@@ -59,6 +60,8 @@ function authenticatedUser(req, res, next) {
 var routes = require('./config/routes');//all routes for passport live here
 app.use(routes);
 
+app.use(favicon(__dirname + '/public/favicon.ico'));
+
 app.listen(process.env.PORT || 4000, function(){
-  console.log("We are up and running on port 4000!");
+  console.log("We are up and running!");
 });
