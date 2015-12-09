@@ -17,7 +17,7 @@ var uriUtil = require('mongodb-uri')
 var favicon = require('serve-favicon');
 
 // mongoose.connect("mongodb://localhost/frequency")
-mongoose.connect('mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs');//we will have a headache when we deploy to heroku
+// mongoose.connect('mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs');//we will have a headache when we deploy to heroku
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
