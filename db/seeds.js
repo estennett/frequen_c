@@ -1,6 +1,6 @@
 require("./schema");
 var mongoose = require("mongoose");
-var conn = mongoose.connect('mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs');
+var conn = mongoose.createConnection('mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs');
 var conn = mongoose.connect("mongodb://localhost/frequency");
 var FrequencyModel = require("../models/frequency")
 var PodcastModel = require("../models/podcast")
