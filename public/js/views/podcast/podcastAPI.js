@@ -1,49 +1,61 @@
-var injectYahooScript = function(feed) {
-  feed = encodeURIComponent(feed);
-  var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feednormalizer%20where%20url%3D'" + feed + "'%20and%20output%3D'atom_1.0'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=handleYahooResponse"
-  var scriptElement = document.createElement('script');
-  scriptElement.setAttribute('type', 'text/javascript');
-  scriptElement.setAttribute('src', url);
-  document.getElementsByTagName('head')[0].appendChild(scriptElement);
+var episodeHeading = function(episode){
+  var heading = "<h3>" + episode.title + ": Recent Episodes</h3>"
+  return heading;
 }
 
-var handleYahooResponse = function(response) {
-  console.log(response);
-  var text = '', item;
+var episodeAudio = function(episodeTitle, audioLink) {
+  var audio = '<a href="' + audioLink + '">' + episodeTitle + '</a>';
+  audio += '<audio controls><source src="' + audioLink + '" type="audio/ogg"><source src="' + audioLink + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
 
-  text += "<h3>" + response.query.results.feed.title + ": Recent Episodes</h3>";
+  return audio;
+}
 
-  if (response.query.results.feed.summary) {
-    text += "<p class='podcast_description'>" + response.query.results.feed.summary.content + "</p>";
-  }
-
-  text += "<div class='individual_episodes'>";
+var episodeEach = function(episode){
+  var segment = "<div class='individual_episodes'>";
 
   for (var i = 0, k = 10; i < k; i++) {
-    item = response.query.results.feed.entry[i];
-
-    text += "<div class='episode'>"
-    if (item.link[0].href) {
-      text += '<a href="' + item.link[0].href + '">' + item.title + '</a>';
-      text += '<audio controls><source src="' + item.link[0].href + '" type="audio/ogg"><source src="' + item.link[0].href + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
+    item = episode.entry[i];
+    segment += "<div class='episode'>"
+    if (item.link[1].href) {
+      segment += episodeAudio(item.title, item.link[1].href);
+    } else if (item.link[0].href) {
+      segment += episodeAudio(item.title, item.link[0].href);
     } else if (item.link.href) {
-      text += '<li><a href="' + item.link.href + '">' + item.title + '</a>';
-      text += '<audio controls><source src="' + item.link.href + '" type="audio/ogg"><source src="' + item.link.href + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
-    } else if (item.link[1].href) {
-      text += '<li><a href="' + item.link[1].href + '">' + item.title + '</a>';
-      text += '<audio controls><source src="' + item.link[1].href + '" type="audio/ogg"><source src="' + item.link[1].href + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
+      segment += episodeAudio(item.title, item.link.href);
     }
-
-    text += "<button class='btn'>Add to Frequency</button></div>"
+    segment += "<button class='btn'>Add to Frequency</button></div>"
   }
 
-  text += "</div>"
+  segment += "</div>"
+  return segment;
+}
+
+
+
+// Callback for YQL json response
+var handleYahooResponse = function(response) {
+  console.log(response);
+  var episode = response.query.results.feed;
+  var text = episodeHeading(episode);
+  text += episodeEach(episode);
+  text += "</div>";
 
   $('#podcastDisplay').html("");
   $('#episodeDisplay').html(text);
 }
 
 $(document).ready(function() {
+
+  // Use YQL to receive a json response of the XML feed.
+  var injectYahooScript = function(feed) {
+    feed = encodeURIComponent(feed);
+    var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feednormalizer%20where%20url%3D'" + feed + "'%20and%20output%3D'atom_1.0'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=handleYahooResponse"
+    var scriptElement = document.createElement('script');
+    scriptElement.setAttribute('type', 'text/javascript');
+    scriptElement.setAttribute('src', url);
+    document.getElementsByTagName('head')[0].appendChild(scriptElement);
+  }
+
   // Search iTunes API for podcasts based on genre
   var searchPodcast = function(search){
     var url = "https://itunes.apple.com/search?term=" + search + "&media=podcast&limit=10";
@@ -60,18 +72,23 @@ $(document).ready(function() {
     })
   }
 
+  var podcastDivCreation = function(podcast) {
+    var podcastEntryDiv = "<div class='podcastEntry " + podcast.collectionId + "'>";
+    podcastEntryDiv += "<img src='" + podcast.artworkUrl100 + "'>"
+    podcastEntryDiv += "<h3 class='artistName'>" + podcast.artistName + "</h3>";
+    podcastEntryDiv += "<p class='description'>" + podcast.collectionName + "</p>";
+    podcastEntryDiv += "<p class='hide feedUrl'>" + podcast.feedUrl + "</p>";
+    podcastEntryDiv += "<p class='genres'>" + podcast.genres.join(", ") + "</p>";
+    podcastEntryDiv += "<button class='btn'>View Episodes</button></div>";
+    return podcastEntryDiv;
+  }
+
   // Create DOM Elements with podcast search results
   var generateList = function(searchResults){
     var $el = $("<div/>");
-    $.each(searchResults, function(index, podcast){
+    $.each(searchResults, function(index, podcast) {
       console.log(podcast);
-      var $preview = "<div class='podcastEntry " + podcast.collectionId + "'>";
-      $preview += "<img src='" + podcast.artworkUrl100 + "'>"
-      $preview += "<h3 class='artistName'>" + podcast.artistName + "</h3>";
-      $preview += "<p class='description'>" + podcast.collectionName + "</p>";
-      $preview += "<p class='hide feedUrl'>" + podcast.feedUrl + "</p>";
-      $preview += "<p class='genres'>" + podcast.genres.join(", ") + "</p>";
-      $preview += "<button class='btn'>View Episodes</button></div>";
+      var $preview = podcastDivCreation(podcast);
       $el.append($preview);
     });
     $('#episodeDisplay').html("");

@@ -61,8 +61,4 @@ app.use(routes);
 
 app.listen(process.env.PORT || 4000, function(){
   console.log("We are up and running!");
-  console.log(process.env.consumerKey);
-  console.log(process.env.consumerSecret);
-  console.log("Callback URL:" + process.env.callbackUrl);
-  console.log(process.env.db_test);
 });
