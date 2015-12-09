@@ -169,14 +169,30 @@ footer {
   margin: 0 auto;
   width: 80%;
   border: 1px solid #eee; }
-  .episode a {
-    display: block; }
+  @media screen and (min-width: 500px) {
+    .episode {
+      justify-content: space-between;
+      padding: 2%; } }
+  @media screen and (min-width: 920px) {
+    .episode {
+      align-content: flex-end;
+      justify-content: flex-end;
+      flex-flow: row nowrap;
+      padding: 1%; } }
   .episode audio {
-    margin: 1.5%; }
+    margin: 1.5% auto; }
+  .episode a {
+    max-width: 300px; }
   .episode .btn {
     font-size: 1rem;
     padding: 4%;
     margin: 0.5% auto; }
+    @media screen and (min-width: 500px) {
+      .episode .btn {
+        padding: 2%; } }
+    @media screen and (min-width: 920px) {
+      .episode .btn {
+        padding: 1.5%; } }
 
 .episode:nth-child(even) {
   background-color: #eee; }
