@@ -1,9 +1,10 @@
 var FrequencyView = function(frequency){
 
   this.frequency = frequency;
+  this.$el = $("<div class='frequency'>");
   var self = this;
 
-  self.renderHomeView(this.frequency);
+  self.render();
 
   $(".goHome").on("click", function(){
     self.renderHomeView()
@@ -12,46 +13,26 @@ var FrequencyView = function(frequency){
 
 FrequencyView.prototype = {
 
-//*
-  renderHomeView: function(frequency){
-    console.log("home")
+  render: function(){
     var self = this;
     //add divs that contain individual frequency names
-    if(!self.$frequencyDiv){
-      this.$frequencyDiv = $("<div class = " + self.frequency.id + "></div>");
-      this.render(this.frequency);
-      $(".home").append(this.$frequencyDiv);
-    }else{
-      this.render(this.frequency);
-      $(".home").append(this.$frequencyDiv);
-    }
 
     //click event for showing the FREQUENCY VIEW... hides .frequency DIV and shows .show DIV
-    $("div[class = "+ this.frequency.id +"]").on("click", function(){
+    self.$el.on("click", function(){
       self.renderFrequencyShow();
     })
-    $('.showPodcast').hide();
-    $('.frequencyShow').hide();
-    $('.editFrequency').remove();
-    $('.home').show();
+    self.$el.html(self.frequencyTemplate());
   },
 //*
-  render: function(frequency){
-    var self = this;
-      self.$frequencyDiv.html(self.frequencyTemplate(self.frequency));
-  },
-//*
-  frequencyTemplate: function(frequency){
+  frequencyTemplate: function(){
     var html = $("<div>");
-    html.append("<h3>" + frequency.title + "</h3>");
+    html.append("<h3>" + this.frequency.title + "</h3>");
     return(html);
   },
 //*
   renderFrequencyShow: function(){
     var self = this;
-    $('.frequencyShow').html(self.frequencyShowTemplate(self.frequency));
-    $('.home').hide();
-    $('.frequencyShow').show();
+    this.$el.html(self.frequencyShowTemplate(self.frequency));
     self.renderPodcastClickEvent();
     $('.edit-frequency-button').on('click', function(){
         self.renderEditForm();

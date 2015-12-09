@@ -1,13 +1,9 @@
 $(document).ready(function(){
-    var pageSetup = new PageSetup();
+  var $freqs = $("<div class= 'frequencies'><button class='goHome'>Go Home E.T.</button></div>")
+  var footer = $('footer');
+  $(footer).before($freqs);
 
-    //shows home div
-    $('.home').show();
-
-
-    Frequency.fetch().then(function(frequencies){
-      frequencies.forEach(function(frequency){
-        var view = new FrequencyView(frequency)
-    })
-  })
+  Frequency.fetch().then(function(frequencies){
+    listView = new FrequencyListView(frequencies, $freqs);
+})
 })
