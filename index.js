@@ -32,7 +32,7 @@ app.set('view engine', 'hbs');
 app.set("views","./public/js/views");
 
 app.use(express.static(path.join(__dirname, 'public')));//need public directory
-app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
+// app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
