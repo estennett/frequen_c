@@ -21,6 +21,7 @@ var favicon = require('serve-favicon');
 
 mongoose.connect('mongodb://heroku_fw2w8pxs:tesa7kp6vfnpq6tdec9pb99ktj@ds027155.mongolab.com:27155/heroku_fw2w8pxs');//we will have a headache when we deploy to heroku
 
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
@@ -59,8 +60,6 @@ function authenticatedUser(req, res, next) {
 
 var routes = require('./config/routes');//all routes for passport live here
 app.use(routes);
-
-app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.listen(process.env.PORT || 4000, function(){
   console.log("We are up and running!");
