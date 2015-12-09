@@ -102,33 +102,26 @@ footer {
 .podcastSearch {
   text-align: center; }
   .podcastSearch .podcastEntry {
-    border: 3px solid #e7bb41;
-    width: 90%;
-    color: black;
-    padding: 0;
-    margin: 2% auto;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    border-radius: 3px; }
+    text-align: left; }
     .podcastSearch .podcastEntry img {
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       -ms-border-radius: 3px;
       border-radius: 3px; }
     .podcastSearch .podcastEntry .artistName {
-      background-color: #e7bb41;
+      width: 60%;
       margin-top: 0;
       padding: 2%;
       color: black; }
-    @media screen and (min-width: 500px) {
-      .podcastSearch .podcastEntry {
-        width: 75%; } }
-    @media screen and (min-width: 920px) {
-      .podcastSearch .podcastEntry {
-        display: inline-block;
-        margin: 2%;
-        width: 40%; } }
+      @media screen and (min-width: 920px) {
+        .podcastSearch .podcastEntry .artistName {
+          width: 30%; } }
+    .podcastSearch .podcastEntry .genres {
+      width: 100%;
+      font-style: italic; }
+      @media screen and (min-width: 920px) {
+        .podcastSearch .podcastEntry .genres {
+          width: 30%; } }
 
 .searchForPodcast {
   width: 75%;
@@ -161,7 +154,7 @@ footer {
   width: 80%;
   margin: 3% auto; }
 
-.episode {
+.episode, .podcastEntry {
   display: flex;
   flex-flow: row wrap;
   align-content: center;
@@ -170,31 +163,31 @@ footer {
   width: 80%;
   border: 1px solid #eee; }
   @media screen and (min-width: 500px) {
-    .episode {
+    .episode, .podcastEntry {
       justify-content: space-between;
       padding: 2%; } }
   @media screen and (min-width: 920px) {
-    .episode {
+    .episode, .podcastEntry {
       align-content: flex-end;
       justify-content: flex-end;
       flex-flow: row nowrap;
       padding: 1%; } }
-  .episode audio {
+  .episode audio, .podcastEntry audio {
     margin: 1.5% auto; }
-  .episode a {
-    max-width: 300px; }
-  .episode .btn {
+  .episode a, .podcastEntry a {
+    width: 300px; }
+  .episode .btn, .podcastEntry .btn {
     font-size: 1rem;
     padding: 4%;
     margin: 0.5% auto; }
     @media screen and (min-width: 500px) {
-      .episode .btn {
+      .episode .btn, .podcastEntry .btn {
         padding: 2%; } }
     @media screen and (min-width: 920px) {
-      .episode .btn {
+      .episode .btn, .podcastEntry .btn {
         padding: 1.5%; } }
 
-.episode:nth-child(even) {
+.episode:nth-child(even), .podcastEntry:nth-child(even) {
   background-color: #eee; }
 
 body {

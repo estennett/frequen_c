@@ -2,32 +2,29 @@
   text-align: center;
 
   .podcastEntry {
-    border: 3px solid $yellow;
-    width: 90%;
-    color: black;
-    padding: 0;
-    margin: 2% auto;
-    @include border-radius(3px);
-
+    text-align: left;
     img {
       @include border-radius(3px);
     }
 
     .artistName {
-      background-color: $yellow;
+      width: 60%;
       margin-top: 0;
       padding: 2%;
       color: black;
+
+      @media screen and (min-width: $break-med) {
+        width: 30%;
+      }
     }
 
-    @media screen and (min-width: $break-small) {
-      width: 75%;
-    }
+    .genres {
+      width: 100%;
+      font-style: italic;
 
-    @media screen and (min-width: $break-med) {
-      display: inline-block;
-      margin: 2%;
-      width: 40%;
+      @media screen and (min-width: $break-med) {
+        width: 30%;
+      }
     }
   }
 }
@@ -63,16 +60,15 @@
     height: 40px;
     font-size: 1.25rem;
   }
-
 }
 
 .podcast_description {
   width: 80%;
   margin: 3% auto;
-
 }
 
-.episode {
+
+.episode, .podcastEntry {
   display: flex;
   flex-flow: row wrap;
   align-content: center;
@@ -98,7 +94,7 @@
   }
 
   a {
-    max-width: 300px;
+    width: 300px;
   }
 
   .btn {
@@ -116,6 +112,6 @@
   }
 }
 
-.episode:nth-child(even) {
+.episode:nth-child(even), .podcastEntry:nth-child(even) {
   background-color: $grey;
 }

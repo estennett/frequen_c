@@ -66,11 +66,12 @@ $(document).ready(function() {
     $.each(searchResults, function(index, podcast){
       console.log(podcast);
       var $preview = "<div class='podcastEntry " + podcast.collectionId + "'>";
+      $preview += "<img src='" + podcast.artworkUrl100 + "'>"
       $preview += "<h3 class='artistName'>" + podcast.artistName + "</h3>";
-      $preview += "<p>" + podcast.collectionName + "</p>";
-      $preview += "<p class='hide feedUrl'>" + podcast.feedUrl + "</p>"
-      $preview += "<p>" + podcast.genres.join(", ") + "</p>";
-      $preview += "<img src=" + podcast.artworkUrl100 + "></div>";
+      $preview += "<p class='description'>" + podcast.collectionName + "</p>";
+      $preview += "<p class='hide feedUrl'>" + podcast.feedUrl + "</p>";
+      $preview += "<p class='genres'>" + podcast.genres.join(", ") + "</p>";
+      $preview += "<button class='btn'>View Episodes</button></div>";
       $el.append($preview);
     });
     $('#episodeDisplay').html("");
