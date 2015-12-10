@@ -20,8 +20,8 @@ $ npm install
 $ node db/seeds.js
 ```
 
-For Twitter User Authentication, create an app at: https://apps.twitter.com/
-Set the Callback URL within the app to: http://127.0.0.1:4000/auth/twitter/callback
+For Twitter User Authentication, create an app at: https://apps.twitter.com/.
+Set the Callback URL within the app to: http://127.0.0.1:4000/auth/twitter/callback.
 Create a .env file (don't commit this file to git!) to store Twitter App information:
 ```
 consumerKey="<your_consumer_key>"

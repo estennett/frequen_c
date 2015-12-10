@@ -101,27 +101,28 @@ footer {
 
 .podcastSearch {
   text-align: center; }
-  .podcastSearch .podcastEntry {
-    text-align: left; }
-    .podcastSearch .podcastEntry img {
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      -ms-border-radius: 3px;
-      border-radius: 3px; }
-    .podcastSearch .podcastEntry .artistName {
-      width: 60%;
-      margin-top: 0;
-      padding: 2%;
-      color: black; }
-      @media screen and (min-width: 920px) {
-        .podcastSearch .podcastEntry .artistName {
-          width: 30%; } }
-    .podcastSearch .podcastEntry .genres {
-      width: 100%;
-      font-style: italic; }
-      @media screen and (min-width: 920px) {
-        .podcastSearch .podcastEntry .genres {
-          width: 30%; } }
+
+.result {
+  text-align: left; }
+  .result img {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px; }
+  .result .artistName {
+    width: 60%;
+    margin-top: 0;
+    padding: 2%;
+    color: black; }
+    @media screen and (min-width: 920px) {
+      .result .artistName {
+        width: 30%; } }
+  .result .genres {
+    width: 100%;
+    font-style: italic; }
+    @media screen and (min-width: 920px) {
+      .result .genres {
+        width: 30%; } }
 
 .searchForPodcast {
   width: 75%;
