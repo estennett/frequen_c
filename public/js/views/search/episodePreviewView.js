@@ -16,13 +16,13 @@ EpisodePreviewView.prototype = {
     addToFrequency.on("click", function(){
     console.log(self.episode.title);
     console.log(self.episode.audio);
-    console.log(self.episode.podcastName);
+    console.log(self.episode.description);
     });
   },
 
   episodeTemplate: function(episode) {
     var text = '';
-    text += '<a href="' + episode.audio + '">' + episode.title + '</a>';
+    text += '<a href="' + episode.audio + '">' + episode.description + '</a>';
     text += '<audio controls><source src="' + episode.audio + '" type="audio/ogg"><source src="' + episode.audio + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
     text += '<button class="btn">Add to Frequency</button>'
     return text;
