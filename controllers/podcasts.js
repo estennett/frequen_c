@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var Frequency = require('../models/frequency');
 var Podcast = require('../models/podcast');
+var flash = require('connect-flash');
+
+
 
 // GET /:freq_id/podcast_search
 function getPodcastSearch(request, response) {

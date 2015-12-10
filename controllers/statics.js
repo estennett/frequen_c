@@ -5,7 +5,7 @@ var Podcast = require('../models/podcast');
 
 
 function home(req, res) {
-  res.render('index.hbs');
+  res.render('index.hbs', { messages: req.flash('test') });
 }
 
 

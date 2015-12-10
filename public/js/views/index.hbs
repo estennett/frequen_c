@@ -33,6 +33,9 @@
         </ul>
       </nav>
     </header>
+    {{#if message.length}}
+      <div class="alert alert-danger">{{message}}</div>
+    {{/if}}
     <footer>
       <ul>
         <li>Home</li>
