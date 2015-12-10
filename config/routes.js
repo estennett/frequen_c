@@ -44,7 +44,7 @@ router.route('/auth/twitter/callback')
     failureRedirect: '/login'
   }));
 
-router.route('/podcast_search')
+router.route('/:freq_id/podcast_search')
   .get(podcastsController.getPodcastSearch)
 
 module.exports = router
