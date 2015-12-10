@@ -1,6 +1,6 @@
 var Podcast = function(info){
   this.title;
-  this.curent;
+  this.current;
   this.comments;
   this.frequency;
 }
