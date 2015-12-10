@@ -46,5 +46,6 @@ router.route('/auth/twitter/callback')
 
 router.route('/:freq_id/podcast_search')
   .get(podcastsController.getPodcastSearch)
+  .post(podcastsController.addPodcast)
 
 module.exports = router

@@ -12,11 +12,17 @@ EpisodePreviewView.prototype = {
     self.$el.html(self.episodeTemplate(self.episode));
 
     var addToFrequency = self.$el.find(".btn");
+    var data = {
+      title: self.episode.title,
+      audio: self.episode.audio,
+      description: self.episode.description
+    }
 
     addToFrequency.on("click", function(){
-    console.log(self.episode.title);
-    console.log(self.episode.audio);
-    console.log(self.episode.description);
+      $('<form action="/5669ba0aa66a0d95b9f53c9b/podcast_search" method="POST">' + '<input type="hidden" name="aid" value="' + self.episode.title + '">' + '</form>').submit();
+      console.log(self.episode.title);
+      console.log(self.episode.audio);
+      console.log(self.episode.description);
     });
   },
 
