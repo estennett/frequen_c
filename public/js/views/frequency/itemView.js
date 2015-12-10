@@ -40,9 +40,9 @@ ItemView.prototype = {
     var html = $("<div class=editFrequency>");
     html.append("<input name='title' value='" + this.frequency.title + "'>");
     html.append("<input name='genre' value='" + this.frequency.genre + "'>");
-    html.append("<button class='updateFrequency'>Update Frequency</button>");
-    html.append("<button class='deleteFrequency'>Delete Frequency</button>");
-    html.append("<button class='addPodcast'><a href='/" + this.frequency.id + "/podcast_search'>Add Podcast</a></button>");
+    html.append("<button class='btn updateFrequency'>Update Frequency</button>");
+    html.append("<button class='btn deleteFrequency'>Delete Frequency</button>");
+    html.append("<button class='btn addPodcast'><a href='/" + this.frequency.id + "/podcast_search'>Add Podcast</a></button>");
     this.$el.append(html);
 
     self.$el.find(".updateFrequency").on("click", function(){

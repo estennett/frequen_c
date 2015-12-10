@@ -38,7 +38,7 @@ FrequencyListView.prototype.toggleNewForm = function(){
   var $el = $("<div class='newFrequency'>");
   $el.append("<input name='title'>");
   $el.append("<input name='genre'>");
-  $el.append("<button class='createFrequency'>Create Frequency</button>");
+  $el.append("<button class='btn createFrequency'>Create Frequency</button>");
   self.$el.append($el);
 }
 
