@@ -8,7 +8,7 @@ var FrequencyListView = function(el){
       self.renderAll();
   });
 
-  self.$el.find(".newFrequency").on("click", function(){
+  self.$el.find(".newFrequencyButton").on("click", function(){
     self.toggleNewForm();
 
     self.$el.find(".createFrequency").on("click", function(){
@@ -21,6 +21,7 @@ var FrequencyListView = function(el){
 
 FrequencyListView.prototype.renderAll = function() {
   this.$el.find("div.frequency").remove();
+  $('.createFrequency').show()
   var self=this;
   Frequency.fetch().then(function(results){
     this.frequencies = results;

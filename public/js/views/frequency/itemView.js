@@ -1,5 +1,7 @@
 var ItemView = function (frequency){
+//pass in parent into params above
   var self = this;
+  // this.parent = parent; references the parent that this view was instantiated in, can call the functions from the parent!
   self.frequency = frequency;
   self.$el = $("<div class=frequency></div");
   self.render();
