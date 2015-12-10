@@ -5,8 +5,10 @@ var Podcast = function(info){
   this.frequency;
 }
 
-//
-// title : String,
-// current : Boolean,
-// comments : [CommentSchema],
-// frequency : {type: ObjectId, ref: "Frequency"}
+// Podcast.prototype = {
+//   destroy: function(){
+//     var url = "http://127.0.0.1:4000/frequencies/" + this.id;
+//     var request = $.ajax( {url: url, method: "delete"} );
+//     return request;
+//   },
+// }
