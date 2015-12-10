@@ -12,7 +12,7 @@ PodcastView.prototype = {
     $(self.$el).append(html);
     self.$el.on("click", function(){
       console.log(self.$el);
-      self.$el.html("Name:" + self.podcast.title + "Description: " + self.podcast.description);
+      self.$el.html("Name:" + self.podcast.title + "Description: " + self.podcast.description + "<button class='deletePodcast'>Delete Podcast</button>");
       self.$el.siblings(".podcast").hide();
       $('.editFrequency').hide();
 
