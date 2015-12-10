@@ -1,6 +1,13 @@
 .frequencies {
   padding: 3%;
+  background-image: url('pattern_white.jpg');
+  height: 400px;
+  background-color: #FCFBE3;
 
+}
+
+.frequency{
+  background-color: white;
 }
 
 .frequencies > div {
@@ -10,6 +17,7 @@
   margin: 1%;
   padding: 1%;
   @include border-radius(2px);
+  text-align: center;
 
   @media screen and (min-width: $break-small) {
     width: 40%
@@ -20,7 +28,7 @@
   }
   // want to have same hover associated with frequencies and podcats - how to turn this into variable?
   &:hover {
-    background-color: #b24543;
+    background-color: #c56362;
     cursor: pointer;
 }
 }
