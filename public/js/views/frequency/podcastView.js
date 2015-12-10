@@ -11,7 +11,7 @@ PodcastView.prototype = {
     var html =$("<h3>" + this.podcast.title + "</h3>");
     $(self.$el).append(html);
     self.$el.on("click", function(){
-      console.log(self.$el);
+      self.$el.html(self.podcast.title)
     })
   },
 
