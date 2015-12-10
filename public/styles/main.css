@@ -15,8 +15,6 @@ header {
     @media screen and (min-width: 920px) {
       header #logo {
         width: 20%; } }
-  header a {
-    font-color: white; }
   header .title {
     width: 50%; }
   header ul {
@@ -34,6 +32,8 @@ header {
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
     border-radius: 2px; }
+    header li li:hover {
+      background-color: #cfa839; }
     @media screen and (min-width: 500px) {
       header li {
         padding: 6%; } }
@@ -67,6 +67,22 @@ footer {
   @media screen and (min-width: 920px) {
     .frequencies > div {
       width: 25%; } }
+  .frequencies > div:hover {
+    background-color: #b24543;
+    cursor: pointer; }
+
+.show h3 {
+  text-align: center; }
+
+.show > div > div {
+  border: 2px solid black;
+  padding: 2em;
+  margin: 1em;
+  width: 40%;
+  display: inline-block; }
+  .show > div > div:hover {
+    background-color: #87e2cb;
+    cursor: pointer; }
 
 .signup_login_container {
   text-align: center; }

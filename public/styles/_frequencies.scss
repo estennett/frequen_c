@@ -1,5 +1,6 @@
 .frequencies {
   padding: 3%;
+
 }
 
 .frequencies > div {
@@ -17,4 +18,31 @@
   @media screen and (min-width: $break-med) {
     width: 25%
   }
+  // want to have same hover associated with frequencies and podcats - how to turn this into variable?
+  &:hover {
+    background-color: #b24543;
+    cursor: pointer;
 }
+}
+
+.show{
+  h3{
+    text-align: center;
+  }
+}
+
+.show > div > div {
+  border: 2px solid black;
+  padding: 2em;
+  margin: 1em;
+  width: 40%;
+  display: inline-block;
+  &:hover {
+    background-color: #87e2cb;
+    cursor: pointer
+    }
+}
+//  add class in frequency view for individual podcast
+
+
+// this could all probably go in show podcast.scss page
