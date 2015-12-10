@@ -22,7 +22,7 @@ Frequency.prototype = {
 
   update: function(frequencyData) {
     var self = this;
-    var url = "http://127.0.0.1:4000/frequencies/";
+    var url = "http://127.0.0.1:4000/frequencies/:id";
     var request = $.ajax({
       url: url,
       method: "patch",
@@ -46,7 +46,7 @@ Frequency.prototype = {
       contentType: 'application/json'
     }).then(
       function(newFrequencyInfo){
-        // self.reload
+        self.reload
       }
     )
   },

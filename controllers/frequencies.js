@@ -15,16 +15,21 @@ router.get('/frequencies/:id', function(req, res){
   });
 });
 
-router.post('/frequencies/', function(req, res){
-  Frequency.create(req.body).then(function(frequency){
-    res.json(frequency);
-  })
-})
-
 router.patch("/frequencies/:id", function(req, res){
   Frequency.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}).then(function(frequency){
+    console.log(frequency)
     res.json(frequency);
-  })
+})
+// router.post('/frequencies/', function(req, res){
+//   Frequency.create(req.body).then(function(frequency){
+//     res.json(frequency);
+//   })
+// });
+
+
+
+
+
   // Frequency.findById(req.params.id).then(function(frequency){
   //   if(!frequency) return error(res, "not found");
   //   console.log("i made it");
