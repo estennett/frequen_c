@@ -11,21 +11,22 @@ PodcastView.prototype = {
     var html =$("<h3>" + this.podcast.title + "</h3>");
     $(self.$el).append(html);
     self.$el.on("click", function(){
-      console.log(self.$el);
-      self.$el.html("Name:" + self.podcast.title + "Description: " + self.podcast.description + "<button class='deletePodcast'>Delete Podcast</button>");
-      self.$el.siblings(".podcast").hide();
-      $('.editFrequency').hide();
-
+    self.$el.html("<h4 class = podcast-name>" + "Podcast Name:" + "</h4>"+ self.podcast.title + "<h4 class = podcast-description>" + "Description: " + "</h4>" + self.podcast.description);
+    self.$el.siblings(".podcast").hide();
+    $('.editFrequency').hide();
+    self.renderEditPodcast();
     })
   },
+  renderEditPodcast: function(){
+    var self = this;
+    var $el = $("<button class= btn deletePodcast> Delete Podcast </button>");
+    this.$el.append($el);
+    this.$el.find($el).on("click", function(){
+      console.log("test");
+    })
+    },
 
-  // self.$el.html("<button class='deletePodcast'>Delete Podcast</button>");
 
-  // renderPodcastShow: function(){
-  //   var self = this;
-  //   var $el = $("<div class = podcastShow></div>")
-  //   $el.append("<h3>" + this.podcast.title + "</h3>");
-  //   $el.append("<h3>" + this.podcast.description + "</h3>");
-  //   this.$el.append($el);
-  // },
-};
+  };
+
+// ("<p>" + Frequen.c Name: + "</p>"

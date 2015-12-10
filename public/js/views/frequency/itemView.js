@@ -18,7 +18,7 @@ ItemView.prototype = {
   //show individual frequency render
   renderShow: function(){
     var self = this;
-    this.$el.html("Name: " + self.frequency.title + "  Genre: " + self.frequency.genre)
+    this.$el.html("<h4 class = freq-name>" + "Frequen.c Name: " + "</h4>" + self.frequency.title +  "<h4 class = freq-genre>"+ "Genre: " + "</h4>" + self.frequency.genre)//want to put these in classes to style
     self.renderPodcasts();
     self.renderEditPage();
     this.$el.siblings(".frequency").hide();
@@ -38,10 +38,9 @@ ItemView.prototype = {
     var html = $("<div class=editFrequency>");
     html.append("<input name='title' value='" + this.frequency.title + "'>");
     html.append("<input name='genre' value='" + this.frequency.genre + "'>");
-    html.append("<button class='updateFrequency'>Update Frequency</button>");
-    html.append("<button class='deleteFrequency'>Delete Frequency</button>");
+    html.append("<button class='btn updateFrequency'>Update Frequency</button>");
+    html.append("<button class='btn deleteFrequency'>Delete Frequency</button>");
     this.$el.append(html);
-
     self.$el.find(".updateFrequency").on("click", function(){
       self.updateFrequency();
     });
