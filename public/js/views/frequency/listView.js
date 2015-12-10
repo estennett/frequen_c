@@ -8,7 +8,6 @@ var FrequencyListView = function(frequencies, el){
 
   self.$el.find(".goHome").on("click", function(){
     self.renderAll();
-      alert("hi")
   });
 
 
