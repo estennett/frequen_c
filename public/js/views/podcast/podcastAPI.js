@@ -1,4 +1,15 @@
+var episodeHeading = function(episodes){
+  var heading = "<h3>" + episodes.title + ": Recent Episodes</h3>"
+  return heading;
+}
 
+var generateEpisodes = function(episodes, podcastName){
+  for (var i = 0, k = 10; i < k; i++) {
+    item = episodes.entry[i];
+    var episode = new EpisodePreview(item.title, item.link[1].href, podcastName);
+    new EpisodePreviewView(episode);
+  }
+}
 
 // Callback for YQL json response
 var handleYahooResponse = function(response) {
@@ -10,19 +21,6 @@ var handleYahooResponse = function(response) {
 
 
 $(document).ready(function() {
-
-  var episodeHeading = function(episodes){
-    var heading = "<h3>" + episodes.title + ": Recent Episodes</h3>"
-    return heading;
-  }
-
-  var generateEpisodes = function(episodes, podcastName){
-    for (var i = 0, k = 10; i < k; i++) {
-      item = episodes.entry[i];
-      var episode = new EpisodePreview(item.title, item.link[1].href, podcastName);
-      new EpisodePreviewView(episode);
-    }
-  }
 
   var generateResults = function(searchResults){
     $.each(searchResults, function(index, podcast) {
