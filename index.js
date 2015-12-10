@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+require('dotenv').load();
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
@@ -13,10 +14,13 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var staticsController = require('./controllers/statics');
 var usersController = require('./controllers/users');
+var uriUtil = require('mongodb-uri')
+var favicon = require('serve-favicon');
 
+var mongodbUri = 'mongodb://localhost/frequency';
+mongoose.connect(process.env.MONGOLAB_URI || mongodbUri);
 
-mongoose.connect('mongodb://localhost/frequency');//we will have a headache when we deploy to heroku
-
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
@@ -52,10 +56,9 @@ function authenticatedUser(req, res, next) {
   res.redirect('/');
 }
 
-
 var routes = require('./config/routes');//all routes for passport live here
 app.use(routes);
 
-app.listen(4000, function(){
-  console.log("We are up and running on port 4000!");
+app.listen(process.env.PORT || 4000, function(){
+  console.log("We are up and running!");
 });

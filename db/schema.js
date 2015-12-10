@@ -16,7 +16,9 @@ var CommentSchema = new Schema(
 var PodcastSchema = new Schema(
   {
     title : String,
+    description: String,
     current : Boolean,
+    audio : String,
     comments : [CommentSchema],
     frequency : {type: ObjectId, ref: "Frequency"}
   },

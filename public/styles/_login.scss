@@ -1,0 +1,41 @@
+.signup_login_container {
+  text-align: center;
+
+  .form_container, .twitter {
+    width: 75%;
+    margin: 5% auto;
+    padding: 2%;
+    border: 3px solid black;
+    @include border-radius(3px);
+
+    @media screen and (min-width: $break-med) {
+      display: inline-block;
+      width: 35%;
+      height: 250px;
+      float: left;
+      margin: 3%;
+    }
+  }
+
+  label {
+    display: inline-block;
+    width: 100px;
+  }
+
+  .form-group {
+    margin: 2% auto;
+  }
+
+  .twitter {
+    &:hover {
+      background-color: $yellow;
+    }
+  }
+  #twitter-login {
+    width: 20%;
+
+    @media screen and (min-width: $break-med) {
+      margin-top: 15%;
+    }
+  }
+}
