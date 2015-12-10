@@ -3,54 +3,19 @@ var episodeHeading = function(episodes){
   return heading;
 }
 
-var episodeAudio = function(episodeTitle, audioLink) {
-  var audio = '<a href="' + audioLink + '">' + episodeTitle + '</a>';
-  audio += '<audio controls><source src="' + audioLink + '" type="audio/ogg"><source src="' + audioLink + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
-
-  return audio;
-}
-
-var episodeEach = function(episodes, podcastName){
-  var segment = "<div class='individual_episodes'>";
-
+var generateEpisodes = function(episodes, podcastName){
   for (var i = 0, k = 10; i < k; i++) {
     item = episodes.entry[i];
-
-    if (item.link[1].href) {
-      var modelTest1 = new EpisodePreview(item.title, item.link[1].href, podcastName);
-      // console.log(modelTest1);
-      var viewTest1 = new EpisodePreviewView(modelTest1);
-      // segment += viewTest1.render();
-    }
-  //     segment += episodeAudio(item.title, item.link[1].href);
-  //   } else if (item.link[0].href) {
-  //     var modelTest2 = new EpisodePreview(item.title, item.link[0].href, podcastName);
-  //     // console.log(modelTest2);
-  //     modelTest1.episodeAudio();
-  //     segment += episodeAudio(item.title, item.link[0].href);
-  //   } else if (item.link.href) {
-  //     var modelTest3 = new EpisodePreview(item.title, item.link.href, podcastName);
-  //     // console.log(modelTest3);
-  //     modelTest1.episodeAudio();
-  //     segment += episodeAudio(item.title, item.link.href, podcastName);
-  //   }
-  //   segment += "<button class='btn'>Add to Frequency</button></div>"
+    var episode = new EpisodePreview(item.title, item.link[1].href, podcastName);
+    new EpisodePreviewView(episode);
   }
-
-  segment += "</div>"
-  return segment;
 }
-
-
 
 // Callback for YQL json response
 var handleYahooResponse = function(response) {
-  // console.log(response);
   var episodes = response.query.results.feed;
   var text = episodeHeading(episodes);
-  text += episodeEach(episodes, episodes.title);
-  text += "</div>";
-
+  generateEpisodes(episodes, episodes.title);
   $('#podcastDisplay').html("");
   $('#episodeDisplay').html(text);
 }
@@ -75,11 +40,10 @@ $(document).ready(function() {
         dataType: 'JSONP'
     })
     .done(function(response) {
-      // console.log(response);
       generateList(response.results);
     })
     .fail(function(response) {
-      // console.log(response);
+      console.log(response);
     })
   }
 
@@ -98,7 +62,6 @@ $(document).ready(function() {
   var generateList = function(searchResults){
     var $el = $("<div/>");
     $.each(searchResults, function(index, podcast) {
-      // console.log(podcast);
       var $preview = podcastDivCreation(podcast);
       $el.append($preview);
     });
