@@ -11,6 +11,11 @@ var FrequencyListView = function(frequencies, el){
   });
 
 
+  $(".newFrequency").on("click", function(){
+    var newFrequencyView = new NewFrequencyView();
+  })
+
+
 }
 
 FrequencyListView.prototype.renderAll = function() {

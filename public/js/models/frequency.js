@@ -22,7 +22,7 @@ Frequency.prototype = {
 
   update: function(frequencyData) {
     var self = this;
-    var url = "http://127.0.0.1:4000/frequencies/" + this.id;
+    var url = "http://127.0.0.1:4000/frequencies/";
     var request = $.ajax({
       url: url,
       method: "patch",
@@ -34,6 +34,21 @@ Frequency.prototype = {
       }
     );
     return request;
+  },
+  create: function(frequencyData){
+    console.log(frequencyData)
+    var self = this;
+    var url = "http://127.0.0.1:4000/frequencies/";
+    var request = $.ajax({
+      url: url,
+      method: "post",
+      data: JSON.stringify(frequencyData),
+      contentType: 'application/json'
+    }).then(
+      function(newFrequencyInfo){
+        // self.reload
+      }
+    )
   },
 
   destroy: function(){

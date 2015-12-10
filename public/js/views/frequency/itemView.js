@@ -14,6 +14,7 @@ ItemView.prototype = {
     var self = this;
     var html = $("<h3>" + self.frequency.title + "</h3>");
     $(self.$el).append(html);
+
     self.$el.on("click", function() {
       self.renderShow();
     });
@@ -52,7 +53,6 @@ ItemView.prototype = {
       self.frequency.destroy().then(function(){
         self.$el.siblings(".frequency").show();
         self.$el.remove();
-
       })
     })
   },
@@ -63,5 +63,5 @@ ItemView.prototype = {
     this.frequency.update(data).then(function() {
     self.renderShow();
     });
-  }
+  },
 };
