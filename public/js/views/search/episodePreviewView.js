@@ -19,7 +19,7 @@ EpisodePreviewView.prototype = {
     }
 
     addToFrequency.on("click", function(){
-      $('<form action="/5669ba0aa66a0d95b9f53c9b/podcast_search" method="POST">' + '<input type="hidden" name="aid" value="' + self.episode.title + '">' + '</form>').submit();
+      $('<form action="/5669ba0aa66a0d95b9f53c9b/podcast_search" method="POST">' + '<input type="hidden" name="podcastData" value="' + self.episode.title + '"><input type="hidden" name="podcastData" value="' + self.episode.audio + '"><input type="hidden" name="podcastData" value="' + self.episode.description + '"></form>').submit();
       console.log(self.episode.title);
       console.log(self.episode.audio);
       console.log(self.episode.description);

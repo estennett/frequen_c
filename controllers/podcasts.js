@@ -11,24 +11,20 @@ function getPodcastSearch(request, response) {
 // POST /:freq_id/podcast_search
 function addPodcast(request, response) {
   var data = {
-    title: "add This Podcast!",
-    audio: "example.mp3",
-    description: "description of the podcast"
+    title: request.body.podcastData[0],
+    audio: request.body.podcastData[1],
+    description: request.body.podcastData[2]
   }
   var podcast = new Podcast(data);
-  console.log("This is the new podcast: " + podcast);
-
-  var freq = Frequency.find({}).then(function(response){
-    console.log("done!!!");
-    response[0].podcasts.push(podcast);
-    response[0].save(function(err){
+  var freq = Frequency.findById(request.params.freq_id).then(function(response){
+    response.podcasts.push(podcast);
+    response.save(function(err){
       if (err){
         console.log(err)
       }else{
         console.log("frequency was saved")
       }
     });
-    console.log(response[0])
   })
 }
 
