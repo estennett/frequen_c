@@ -1,9 +1,9 @@
 $(document).ready(function(){
+  var $freqs = $("<div class= 'frequencies'><button class='goHome'>Go Home E.T.</button></div>")
+  var footer = $('footer');
+  $(footer).before($freqs);
+
   Frequency.fetch().then(function(frequencies){
-      var podcastShow = new PodcastShow();
-      var show = new FrequencyShow();
-    frequencies.forEach(function(frequency){
-      var view = new FrequencyView(frequency)
-    })
-  })
+    listView = new FrequencyListView(frequencies, $freqs);
+})
 })
