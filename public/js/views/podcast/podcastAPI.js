@@ -16,8 +16,7 @@ var handleYahooResponse = function(response) {
   var episodes = response.query.results.feed;
   var text = episodeHeading(episodes);
   generateEpisodes(episodes, episodes.title);
-  $('#podcastDisplay').html("");
-  $('#episodeDisplay').html(text);
+  $('#resultsDisplay').html(text);
 }
 
 $(document).ready(function() {
@@ -58,16 +57,7 @@ $(document).ready(function() {
     return podcastEntryDiv;
   }
 
-  // Create DOM Elements with podcast search results
-  var generateList = function(searchResults){
-    var $el = $("<div/>");
-    $.each(searchResults, function(index, podcast) {
-      var $preview = podcastDivCreation(podcast);
-      $el.append($preview);
-    });
-    $('#episodeDisplay').html("");
-    $("#podcastDisplay").append($el);
-
+  var podcastClickListener = function(){
     // Add event listener
     $(".podcastEntry").click(function(event){
       var div = $(event.target).closest("div");
@@ -76,11 +66,23 @@ $(document).ready(function() {
     });
   }
 
+
+  // Create DOM Elements with podcast search results
+  var generateList = function(searchResults){
+    var $el = $("<div/>");
+    $.each(searchResults, function(index, podcast) {
+      var $preview = podcastDivCreation(podcast);
+      $el.append($preview);
+    });
+    $("#resultsDisplay").html($el);
+    podcastClickListener();
+  }
+
   // Event Listeners
   $("form").submit(function(event){
     event.preventDefault();
-    $("#podcastDisplay").html("");
     var input = $("#genre").val();
+    $("#individual_episodes").html("");
     searchPodcast(input);
   });
 });
