@@ -1,10 +1,7 @@
 var ItemView = function (frequency){
-
   var self = this;
-
   self.frequency = frequency;
   self.$el = $("<div class=frequency></div");
-
   self.render();
 };
 
@@ -26,6 +23,7 @@ ItemView.prototype = {
     self.renderEditPage();
     this.$el.siblings(".frequency").hide();
   },
+  //show podcasts inside of frequency
   renderPodcasts: function(){
     var self=this;
     this.$el.find("div.podcast").remove();
@@ -52,7 +50,6 @@ ItemView.prototype = {
       self.frequency.destroy().then(function(){
         self.$el.siblings(".frequency").show();
         self.$el.remove();
-
       })
     })
   },
