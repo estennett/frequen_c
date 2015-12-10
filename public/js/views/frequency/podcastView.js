@@ -12,8 +12,14 @@ PodcastView.prototype = {
     $(self.$el).append(html);
     self.$el.on("click", function(){
       console.log(self.$el);
+      self.$el.html("Name:" + self.podcast.title + "Description: " + self.podcast.description);
+      self.$el.siblings(".podcast").hide();
+      $('.editFrequency').hide();
+
     })
   },
+
+  // self.$el.html("<button class='deletePodcast'>Delete Podcast</button>");
 
   // renderPodcastShow: function(){
   //   var self = this;

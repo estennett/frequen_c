@@ -11,7 +11,7 @@ ItemView.prototype = {
     var self = this;
     var html = $("<h3>" + self.frequency.title + "</h3>");
     $(self.$el).append(html);
-    self.$el.on("click", function() {
+    self.$el.find("h3").on("click", function() {
       self.renderShow();
     });
   },
