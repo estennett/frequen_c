@@ -3,3 +3,8 @@ var EpisodePreview = function(title, audio, podcastName){
   this.audio = audio;
   this.podcastName = podcastName;
 }
+
+EpisodePreview.prototype = {
+
+
+}
