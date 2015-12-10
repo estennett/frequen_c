@@ -1,11 +1,11 @@
-var FrequencyListView = function(frequencies, el){
+var FrequencyListView = function(el){
   var self = this;
-  self.frequencies = frequencies;
+  // self.frequencies = frequencies;
   self.$el = el;
   self.renderAll();
 
   self.$el.find(".goHome").on("click", function(){
-    self.renderAll();
+      self.renderAll();
   });
 
   self.$el.find(".newFrequency").on("click", function(){
@@ -22,11 +22,13 @@ var FrequencyListView = function(frequencies, el){
 FrequencyListView.prototype.renderAll = function() {
   this.$el.find("div.frequency").remove();
   var self=this;
-  this.$el.find("div.frequency").remove();
-  this.frequencies.forEach(function(frequency){
-    var itemView = new ItemView(frequency);
-    self.$el.append(itemView.$el)
-  });
+  Frequency.fetch().then(function(results){
+    this.frequencies = results;
+    results.forEach(function(frequency){
+      var itemView = new ItemView(frequency); //pass in parent with self
+      self.$el.append(itemView.$el)
+    });
+  })
 }
 
 FrequencyListView.prototype.toggleNewForm = function(){

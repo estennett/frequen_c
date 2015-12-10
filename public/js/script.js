@@ -4,7 +4,7 @@ $(document).ready(function(){
   var footer = $('footer');
   $(footer).before($freqs);
 
-  Frequency.fetch().then(function(frequencies){
-    listView = new FrequencyListView(frequencies, $freqs);
-})
+  // Frequency.fetch().then(function(frequencies){
+    listView = new FrequencyListView($freqs);
+// })
 })
