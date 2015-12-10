@@ -1,10 +1,9 @@
 var ItemView = function (frequency){
-
+//pass in parent into params above
   var self = this;
-
+  // this.parent = parent; references the parent that this view was instantiated in, can call the functions from the parent!
   self.frequency = frequency;
   self.$el = $("<div class=frequency></div");
-
   self.render();
 };
 
@@ -14,7 +13,7 @@ ItemView.prototype = {
     var self = this;
     var html = $("<h3>" + self.frequency.title + "</h3>");
     $(self.$el).append(html);
-    self.$el.on("click", function() {
+    self.$el.find("h3").on("click", function() {
       self.renderShow();
     });
   },
@@ -26,6 +25,7 @@ ItemView.prototype = {
     self.renderEditPage();
     this.$el.siblings(".frequency").hide();
   },
+  //show podcasts inside of frequency
   renderPodcasts: function(){
     var self=this;
     this.$el.find("div.podcast").remove();
@@ -53,7 +53,6 @@ ItemView.prototype = {
       self.frequency.destroy().then(function(){
         self.$el.siblings(".frequency").show();
         self.$el.remove();
-
       })
     })
   },
