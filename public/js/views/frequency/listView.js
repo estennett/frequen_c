@@ -7,14 +7,19 @@ var FrequencyListView = function(frequencies, el){
   self.renderAll();
 
   self.$el.find(".goHome").on("click", function(){
-    self.renderAll()
+    self.renderAll();
+      alert("hi")
   });
+
+
 }
 
 FrequencyListView.prototype.renderAll = function() {
+  var self=this;
   this.$el.find("div.frequency").remove();
 
   this.frequencies.forEach(function(frequency){
-    var viewReturn = new FrequencyView(frequency);
+    var itemView = new ItemView(frequency);
+    self.$el.append(itemView.$el)
   });
 }

@@ -1,20 +1,17 @@
 var FrequencyView = function(frequency){
 
-  this.frequency = frequency;
-  this.$el = $("<div class=frequency></div");
   var self = this;
+  self.frequencyShowTemplate();
 
-  self.frequencyIndexView(this.frequency);
-  $('.frequencies').append(this.$el)
 }
 
 FrequencyView.prototype = {
 
-  frequencyIndexView: function(frequency){
-     var html = $("<h3>" + this.frequency.title + "</h3>");
-     $(this.$el).append(html)
-  }
-// //*
+  // frequencyIndexView: function(frequency){
+  //    var html = $("<h3>" + this.frequency.title + "</h3>");
+  //    $(this.$el).append(html)
+  // }
+// // //*
 //   renderFrequencyShow: function(){
 //     var self = this;
 //     this.$el.html(self.frequencyShowTemplate(self.frequency));
@@ -23,6 +20,19 @@ FrequencyView.prototype = {
 //         self.renderEditForm();
 //     })
 //   },
+//   // This displays when in the .show div to show an individual FREQUENCY
+    frequencyShowTemplate: function(){
+      var podcast = frequency.podcasts;
+      var html = $("<div>");
+      html.append("<h3>" + frequency.title + "</h3>");
+      // html.append("<p>" + podcast.title+ "</p>");
+      for (var i = 0; i < podcast.length; i ++ ){
+        html.append("<div class =  " + podcast[i].id + ">" + podcast[i].title + "</div>");
+      };
+      html.append("<button class = 'edit-frequency-button'> Edit </button>");
+      html.append("<button class = 'create-podcast'> Add a Podcast </button>");
+      return(html);
+    },
 // //*
 //   renderPodcastClickEvent: function(){
 //     var self = this;
@@ -37,19 +47,7 @@ FrequencyView.prototype = {
 //     })
 //   },
 // //*
-// //This displays when in the .show div to show an individual FREQUENCY
-//   frequencyShowTemplate: function(frequency){
-//     var podcast = frequency.podcasts;
-//     var html = $("<div>");
-//     html.append("<h3>" + frequency.title + "</h3>");
-//     // html.append("<p>" + podcast.title+ "</p>");
-//     for (var i = 0; i < podcast.length; i ++ ){
-//       html.append("<div class =  " + podcast[i].id + ">" + podcast[i].title + "</div>");
-//     };
-//     html.append("<button class = 'edit-frequency-button'> Edit </button>");
-//     html.append("<button class = 'create-podcast'> Add a Podcast </button>");
-//     return(html);
-//   },
+//
 // //
 //   podcastShowTemplate: function(podcast){
 //     var html = $("<div>");
