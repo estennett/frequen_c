@@ -10,13 +10,9 @@ var FrequencyListView = function(frequencies, el){
 }
 
 FrequencyListView.prototype.renderAll = function() {
-
-  this.$el.find("div.frequency").remove();//what is div.frequency?
-
+  this.$el.find("div.frequency").remove();
   var self=this;
   this.$el.find("div.frequency").remove();
-
-
   this.frequencies.forEach(function(frequency){
     var itemView = new ItemView(frequency);
     self.$el.append(itemView.$el)
