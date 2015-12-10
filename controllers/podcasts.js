@@ -26,6 +26,7 @@ function addPodcast(request, response) {
       }
     });
   })
+  response.redirect('/');
 }
 
 module.exports = {
