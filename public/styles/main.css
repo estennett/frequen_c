@@ -31,27 +31,28 @@ header {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
-    border-radius: 2px; }
-    header li li:hover {
-      background-color: #cfa839; }
+    border-radius: 2px;
+    font-weight: bold; }
     @media screen and (min-width: 500px) {
       header li {
         padding: 6%; } }
     @media screen and (min-width: 920px) {
       header li {
         padding: 3%; } }
+  header .navbar li:hover {
+    background-color: #ecd084; }
 
 footer {
   text-align: center;
   background-color: black;
   color: white; }
+  footer ul {
+    margin: 0; }
   footer li {
     padding: 4%; }
 
 .frequencies {
-  padding: 2%;
-  background-image: url("pattern_white.jpg");
-  background-color: #FCFBE3; }
+  padding: 2%; }
 
 .frequency {
   background-color: white; }
@@ -59,8 +60,7 @@ footer {
 .frequency h3 {
   text-align: center; }
 .frequency h4 {
-  margin: 0;
-  float: left; }
+  margin: 2% 0; }
 
 .frequencies > div {
   display: inline-block;
@@ -109,13 +109,23 @@ footer {
   margin: 10px 0; }
 .editFrequency .addPodcast:hover {
   background-color: #ab7c93; }
-.editFrequency .h4 {
-  margin-top: 3px;
-  float: left; }
+.editFrequency h4 {
+  margin-top: 3px; }
+
+
+.newFrequencyButton, .goHome {
+  width: 45%; }
+
+.frequencies > .newFrequency {
+  width: 50%;
+  text-align: center;
+  background-color: white; }
+  .frequencies > .newFrequency .btn.createFrequency {
+    display: block;
+    margin: 2% auto; }
 
 .signup_login_container {
-  text-align: center;
-  background-image: url("pattern_white.jpg"); }
+  text-align: center; }
   .signup_login_container .form_container, .signup_login_container .twitter {
     width: 75%;
     margin: 5% auto;
@@ -148,7 +158,7 @@ footer {
 
 .podcastSearch {
   text-align: center;
-  background-image: url("pattern_white.jpg"); }
+  min-height: 450px; }
 
 .result {
   text-align: left; }
@@ -260,7 +270,8 @@ footer {
   background-color: #ab7c93; }
 
 body {
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  background-image: url("pattern_white.jpg"); }
 
 li {
   list-style-type: none;
@@ -288,8 +299,5 @@ a {
 
 .hide {
   display: none; }
-
-.newFrequencyButton, .goHome {
-  width: 45%; }
 
 /*# sourceMappingURL=main.css.map */

@@ -8,6 +8,7 @@
 
 body {
   font-family: $font;
+  background-image: url('pattern_white.jpg');
 }
 
 li {
@@ -40,8 +41,4 @@ a {
 
 .hide {
   display: none;
-}
-
-.newFrequencyButton, .goHome {
-  width: 45%;
 }
