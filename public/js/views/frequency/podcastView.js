@@ -29,6 +29,4 @@ PodcastView.prototype = {
       console.log("test");
     })
     },
-//need to $pull from associated frequen.c
-
   };

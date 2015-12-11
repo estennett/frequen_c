@@ -8,7 +8,6 @@ FrequencyView.prototype = {
       var podcast = frequency.podcasts;
       var html = $("<div>");
       html.append("<h3>" + frequency.title + "</h3>");
-      // html.append("<p>" + podcast.title+ "</p>");
       for (var i = 0; i < podcast.length; i ++ ){
         html.append("<div class =  " + podcast[i].id + ">" + podcast[i].title + "</div>");
       };
