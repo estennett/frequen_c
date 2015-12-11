@@ -103,14 +103,16 @@
   .btn {
     font-size: 1rem;
     padding: 4%;
-    margin: 0.5% auto;
+    margin: 0 auto;
 
     @media screen and (min-width: $break-small) {
       padding: 2%;
     }
 
     @media screen and (min-width: $break-med) {
-      padding: 1.5%;
+      padding: 0 2%;
+      min-width: 150px;
+      max-height: 55px;
     }
   }
 }
