@@ -45,6 +45,8 @@ footer {
   text-align: center;
   background-color: black;
   color: white; }
+  footer ul {
+    margin: 0; }
   footer li {
     padding: 4%; }
 
