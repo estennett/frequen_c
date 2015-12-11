@@ -56,6 +56,9 @@ footer {
 .frequency {
   background-color: white; }
 
+.frequency h3 {
+  text-align: center; }
+
 .frequencies > div {
   display: inline-block;
   width: 90%;
@@ -221,6 +224,12 @@ footer {
 
 .episode:nth-child(even), .podcastEntry:nth-child(even) {
   background-color: #eee; }
+
+.podcast_title {
+  text-align: center; }
+
+.genre_title {
+  text-align: center; }
 
 body {
   font-family: "Roboto", sans-serif; }

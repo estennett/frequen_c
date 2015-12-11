@@ -20,7 +20,7 @@ ItemView.prototype = {
   //show individual frequency render
   renderShow: function(){
     var self = this;
-    this.$el.html("<h3>" + "Frequen.c: " + "</h3>" + self.frequency.title + "<h3>" + "Genre: " +"</h3>" + self.frequency.genre + "<h3>" + "Podcasts: " + "</h3>")
+    this.$el.html("<h1 class = podcast_title>" + self.frequency.title + "</h1>" + "<p class = genre_title>" + "Genre: " + self.frequency.genre + "</p>" +  "<h4>" + "Podcasts: " + "</h4>")
     self.renderPodcasts();
     self.renderEditPage();
     this.$el.siblings(".frequency").hide();
@@ -38,8 +38,8 @@ ItemView.prototype = {
   renderEditPage: function(){
     var self = this;
     var html = $("<div class=editFrequency>");
-    html.append("<h3>" + "New Frequen.c Name" + "</h3>" + "<input name='title' value='" + this.frequency.title + "'>");
-    html.append("<h3>" + "New Frequen.c Genre" + "</h3>" + "<input name='genre' value='" + this.frequency.genre + "'>");
+    html.append("<h4>" + "Frequen.c Name: " + "</h4>" + "<input name='title' value='" + this.frequency.title + "'>");
+    html.append("<h4>" + "Frequen.c Genre: " + "</h4>" + "<input name='genre' value='" + this.frequency.genre + "'>");
     html.append("<button class='btn updateFrequency'>Update Frequency</button>");
     html.append("<button class='btn deleteFrequency'>Delete Frequency</button>");
     html.append("<button class='btn addPodcast'><a href='/" + this.frequency.id + "/podcast_search'>Add Podcast</a></button>");
