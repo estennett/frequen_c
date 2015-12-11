@@ -11,7 +11,7 @@ PodcastView.prototype = {
     var html =$("<button class = 'btn podcast_show'>" + this.podcast.title + "</button>");
     $(self.$el).append(html);
     self.$el.on("click", function(){
-    self.$el.html("<h4 class = podcast-name>" + "Podcast Name: " + self.podcast.title + "</h4><br><h4 class = podcast-description>" + "Description: </h4><p>" + self.podcast.description + "</p><a href='" + self.podcast.audio + "'><audio controls><source src='" + self.podcast.audio + "' type='audio/ogg'><source src='" + self.podcast.audio + "' type='audio/mpeg'>Your browser does not support the audio tag.</audio></a>");
+    self.$el.html("<h4 class = podcast-name>" + "Podcast Name: " + self.podcast.title + "</h4><p class='podcast-description'>Description: " + self.podcast.description + "</p><a href='" + self.podcast.audio + "'><audio controls><source src='" + self.podcast.audio + "' type='audio/ogg'><source src='" + self.podcast.audio + "' type='audio/mpeg'>Your browser does not support the audio tag.</audio></a>");
 
     self.$el.siblings(".podcast").hide();
     $('.editFrequency').hide();

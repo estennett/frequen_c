@@ -60,8 +60,7 @@ footer {
 .frequency h3 {
   text-align: center; }
 .frequency h4 {
-  margin: 0;
-  float: left; }
+  margin: 2% 0; }
 
 .frequencies > div {
   display: inline-block;
