@@ -20,7 +20,7 @@ ItemView.prototype = {
   //show individual frequency render
   renderShow: function(){
     var self = this;
-    this.$el.html("Name: " + self.frequency.title + "  Genre: " + self.frequency.genre)
+    this.$el.html("<h3>" + "Frequen.c: " + "</h3>" + self.frequency.title + "<h3>" + "Genre: " +"</h3>" + self.frequency.genre + "<h3>" + "Podcasts: " + "</h3>")
     self.renderPodcasts();
     self.renderEditPage();
     this.$el.siblings(".frequency").hide();
