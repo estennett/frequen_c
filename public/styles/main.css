@@ -79,7 +79,7 @@ footer {
     .frequencies > div {
       width: 25%; } }
   .frequencies > div:hover {
-    background-color: #f2f2ea;
+    background-color: #e6e6e6;
     cursor: pointer; }
 
 .show h3 {
