@@ -1,9 +1,7 @@
 var express = require('express');
 var passport = require("passport");
 var router = express.Router();
-// Parses information from POST
 var bodyParser = require('body-parser');
-// Used to manipulate POST methods
 var methodOverride = require('method-override');
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
