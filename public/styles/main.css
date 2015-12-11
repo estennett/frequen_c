@@ -33,7 +33,7 @@ header {
     -ms-border-radius: 2px;
     border-radius: 2px; }
     header li li:hover {
-      background-color: #cfa839; }
+      background-color: #ecd084; }
     @media screen and (min-width: 500px) {
       header li {
         padding: 6%; } }
