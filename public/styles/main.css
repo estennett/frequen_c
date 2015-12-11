@@ -31,15 +31,16 @@ header {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
-    border-radius: 2px; }
-    header li li:hover {
-      background-color: #cfa839; }
+    border-radius: 2px;
+    font-weight: bold; }
     @media screen and (min-width: 500px) {
       header li {
         padding: 6%; } }
     @media screen and (min-width: 920px) {
       header li {
         padding: 3%; } }
+  header .navbar li:hover {
+    background-color: #ecd084; }
 
 footer {
   text-align: center;
@@ -291,5 +292,8 @@ a {
 
 .newFrequencyButton, .goHome {
   width: 45%; }
+
+.newFrequency {
+  background-color: white; }
 
 /*# sourceMappingURL=main.css.map */
