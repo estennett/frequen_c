@@ -52,7 +52,7 @@ footer {
 
 .frequencies {
   padding: 2%;
-  min-height: 450px; }
+  min-height: 400px; }
 
 .frequency {
   background-color: white; }
@@ -110,7 +110,7 @@ footer {
   margin: 10px 0; }
 .editFrequency .addPodcast:hover {
   background-color: #ab7c93; }
-.editFrequency .h4 {
+.editFrequency h4 {
   margin-top: 3px;
   float: left; }
 

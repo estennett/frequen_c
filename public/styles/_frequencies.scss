@@ -1,6 +1,6 @@
 .frequencies {
   padding: 2%;
-  min-height: 450px;
+  min-height: 400px;
 }
 
 .frequency {
@@ -11,6 +11,7 @@
   h3 {
     text-align:center;
   }
+
   h4{
     margin: 0;
     float: left;
@@ -80,7 +81,7 @@
     background-color: $light-maroon;
   }
 
-  .h4{
+  h4 {
     margin-top: 3px;
     float: left;
   }
