@@ -3,7 +3,6 @@ var FrequencyListView = function(el){
   // self.frequencies = frequencies;
   self.$el = el;
   self.renderAll();
-
   self.$el.find(".goHome").on("click", function(){
       self.renderAll();
       self.$el.find(".newFrequency").hide();
@@ -11,7 +10,6 @@ var FrequencyListView = function(el){
 
   self.$el.find(".newFrequencyButton").on("click", function(){
     self.toggleNewForm();
-
     self.$el.find(".createFrequency").on("click", function(){
       self.createFrequency();
       self.$el.find(".newFrequency").hide();

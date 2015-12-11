@@ -35,20 +35,6 @@ Frequency.prototype = {
     );
     return request;
   },
- //  create: function(frequencyData){
- //   var self = this;
- //   var url = "http://127.0.0.1:4000/frequencies/";
- //   var request = $.ajax({
- //     url: url,
- //     method: "post",
- //     data: JSON.stringify(frequencyData),
- //     contentType: 'application/json'
- //   }).then(
- //     function(newFrequencyInfo){
- //       self.relaod
- //     }
- //   )
- // },
 
   create: function(newFrequencyData) {
     var self = this;
