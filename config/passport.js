@@ -1,17 +1,16 @@
 var LocalStrategy = require("passport-local").Strategy
 var TwitterStrategy = require('passport-twitter').Strategy;
 var User = require("../models/user");
-// var env = require('../env');
 
 module.exports = function(passport){
-    passport.serializeUser(function(user, callback) {
-      callback(null, user.id);//we are going to store someone in the session by their id
+  passport.serializeUser(function(user, callback) {
+    callback(null, user.id);//we are going to store someone in the session by their id
+  });
+  passport.deserializeUser(function(id, callback) {
+    User.findById(id, function(err, user) {
+      callback(err, user);
     });
-    passport.deserializeUser(function(id, callback) {
-      User.findById(id, function(err, user) {
-          callback(err, user);
-      });
-    }),
+  }),
   passport.use('local-signup', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
@@ -35,25 +34,25 @@ module.exports = function(passport){
       }
     });
   }))
-    passport.use('local-login', new LocalStrategy({
-    usernameField : 'email',
-    passwordField : 'password',
-    passReqToCallback : true
-  }, function(req, email, password, callback) {
-    User.findOne({'local.email': email}, function(err, user){
-      if(err) return callback(err, false)
-      // If no user is found - checking for email
-       if (!user) {
-         return callback(null, false, req.flash('loginMessage', 'No user found.'));
-       }
-      // Wrong password
-      if (!user.validPassword(password)) {
-        return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
-      }
+  passport.use('local-login', new LocalStrategy({
+  usernameField : 'email',
+  passwordField : 'password',
+  passReqToCallback : true
+}, function(req, email, password, callback) {
+  User.findOne({'local.email': email}, function(err, user){
+    if(err) return callback(err, false)
+    // If no user is found - checking for email
+     if (!user) {
+       return callback(null, false, req.flash('loginMessage', 'No user found.'));
+     }
+    // Wrong password
+    if (!user.validPassword(password)) {
+      return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+    }
 
-      return callback(null, user);
-    })
-  }));
+    return callback(null, user);
+  })
+}));
 
 
   passport.use('twitter', new TwitterStrategy({
