@@ -40,8 +40,8 @@ ItemView.prototype = {
     var html = $("<div class=editFrequency>");
     html.append("<div class = pod-view><h4>Frequen.c Name: </h4><input name='title' value='" + this.frequency.title + "'></div>");
     html.append("<h4>Frequen.c Genre: </h4><input name='genre' value='" + this.frequency.genre + "'>");
-    html.append("<button class='btn updateFrequency'>Update Frequency</button>");
-    html.append("<button class='btn deleteFrequency'>Delete Frequency</button>");
+    html.append("<div class = update-freq> <button class='btn updateFrequency'>Update Frequency</button> <button class='btn deleteFrequency'>Delete Frequency</button></div>");
+
     html.append("<button class='btn addPodcast'><a href='/" + this.frequency.id + "/podcast_search'>Add Podcast</a></button>");
     this.$el.append(html);
 

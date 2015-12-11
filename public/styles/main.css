@@ -116,6 +116,8 @@ footer {
   margin: 10px 0; }
 .editFrequency .addPodcast:hover {
   background-color: #ab7c93; }
+.editFrequency .update-freq {
+  float: left; }
 .editFrequency h4 {
   margin-top: 3px;
   display: block; }
