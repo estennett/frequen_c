@@ -49,7 +49,7 @@ footer {
     padding: 4%; }
 
 .frequencies {
-  padding: 3%;
+  padding: 2%;
   background-image: url("pattern_white.jpg");
   background-color: #FCFBE3; }
 
@@ -58,11 +58,13 @@ footer {
 
 .frequency h3 {
   text-align: center; }
+.frequency h4 {
+  margin: 0; }
 
 .frequencies > div {
   display: inline-block;
   width: 90%;
-  border: 3px solid #742625;
+  border: 3px solid black;
   margin: 1%;
   padding: 1%;
   -webkit-border-radius: 2px;
@@ -95,7 +97,12 @@ footer {
 .editFrequency .btn {
   padding: 2%;
   font-size: 16px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  margin: 1px; }
+
+.editFrequency h4 {
+  margin-top: 8px;
+  float: left; }
 
 .signup_login_container {
   text-align: center;
@@ -160,7 +167,7 @@ footer {
   width: 75%;
   margin: 5% auto;
   padding: 1%;
-  border: 3px solid #742625;
+  border: 3px solid black;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -231,6 +238,12 @@ footer {
 .genre_title {
   text-align: center;
   font-style: italic; }
+
+.podcast .btn:hover {
+  background: white; }
+.podcast .btn {
+  float: left;
+  background-color: #742625; }
 
 body {
   font-family: "Roboto", sans-serif; }

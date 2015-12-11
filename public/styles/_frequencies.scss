@@ -1,21 +1,27 @@
 .frequencies {
-  padding: 3%;
+  padding: 2%;
   background-image: url('pattern_white.jpg');
   background-color: #FCFBE3;
 
 }
 
-.frequency{
+.frequency {
   background-color: white;
 }
 
-.frequency h3 {
-  text-align:center;
+.frequency {
+  h3 {
+    text-align:center;
+  }
+  h4{
+    margin: 0;
+  }
 }
+
 .frequencies > div {
   display: inline-block;
   width: 90%;
-  border: 3px solid $maroon;
+  border: 3px solid black;
   margin: 1%;
   padding: 1%;
   @include border-radius(2px);
@@ -57,9 +63,10 @@
   padding: 2%;
   font-size: 16px;
   border-radius: 4px;
+  margin: 1px;
+
 }
-
-//  add class in frequency view for individual podcast
-
-
-// this could all probably go in show podcast.scss page
+.editFrequency h4 {
+  margin-top: 8px;
+  float: left;
+}
