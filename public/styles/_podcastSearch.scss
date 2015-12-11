@@ -1,5 +1,6 @@
 .podcastSearch {
   text-align: center;
+  background-image: url('pattern_white.jpg');
 }
 
 .result {
@@ -33,8 +34,9 @@
   width: 75%;
   margin: 5% auto;
   padding: 1%;
-  border: 3px solid black;
+  border: 3px solid $maroon;
   @include border-radius(3px);
+  background: white;
 
   @media screen and (min-width: $break-med) {
     display: inline-block;
@@ -75,7 +77,8 @@
   padding: 3%;
   margin: 0 auto;
   width: 80%;
-  border: 1px solid $grey;
+  border: 2px solid $grey;
+  background: white;
 
   @media screen and (min-width: $break-small) {
     justify-content: space-between;

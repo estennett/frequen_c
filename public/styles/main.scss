@@ -22,7 +22,7 @@ a {
 .btn {
   border: none;
   background-color: $yellow;
-  padding: 2%;
+  padding: 2.5%;
   margin: 7px;
   font-size: 1.25rem;
   border-radius: 3%;
@@ -39,4 +39,8 @@ a {
 
 .hide {
   display: none;
+}
+
+.newFrequencyButton, .goHome {
+  width: 45%;
 }

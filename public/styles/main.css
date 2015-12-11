@@ -51,7 +51,6 @@ footer {
 .frequencies {
   padding: 3%;
   background-image: url("pattern_white.jpg");
-  height: 400px;
   background-color: #FCFBE3; }
 
 .frequency {
@@ -60,7 +59,7 @@ footer {
 .frequencies > div {
   display: inline-block;
   width: 90%;
-  border: 2px solid black;
+  border: 3px solid #742625;
   margin: 1%;
   padding: 1%;
   -webkit-border-radius: 2px;
@@ -75,7 +74,7 @@ footer {
     .frequencies > div {
       width: 25%; } }
   .frequencies > div:hover {
-    background-color: #c56362;
+    background-color: #f2f2ea;
     cursor: pointer; }
 
 .show h3 {
@@ -125,7 +124,8 @@ footer {
         margin-top: 15%; } }
 
 .podcastSearch {
-  text-align: center; }
+  text-align: center;
+  background-image: url("pattern_white.jpg"); }
 
 .result {
   text-align: left; }
@@ -153,11 +153,12 @@ footer {
   width: 75%;
   margin: 5% auto;
   padding: 1%;
-  border: 3px solid black;
+  border: 3px solid #742625;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
-  border-radius: 3px; }
+  border-radius: 3px;
+  background: white; }
   @media screen and (min-width: 920px) {
     .searchForPodcast {
       display: inline-block;
@@ -187,7 +188,8 @@ footer {
   padding: 3%;
   margin: 0 auto;
   width: 80%;
-  border: 1px solid #eee; }
+  border: 2px solid #eee;
+  background: white; }
   @media screen and (min-width: 500px) {
     .episode, .podcastEntry {
       justify-content: space-between;
@@ -230,7 +232,7 @@ a {
 .btn {
   border: none;
   background-color: #e7bb41;
-  padding: 2%;
+  padding: 2.5%;
   margin: 7px;
   font-size: 1.25rem;
   border-radius: 3%; }
@@ -245,5 +247,8 @@ a {
 
 .hide {
   display: none; }
+
+.newFrequencyButton, .goHome {
+  width: 45%; }
 
 /*# sourceMappingURL=main.css.map */
