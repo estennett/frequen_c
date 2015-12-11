@@ -65,8 +65,7 @@ footer {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
-  border-radius: 2px;
-  text-align: center; }
+  border-radius: 2px; }
   @media screen and (min-width: 500px) {
     .frequencies > div {
       width: 40%; } }
@@ -89,6 +88,11 @@ footer {
   .show > div > div:hover {
     background-color: #87e2cb;
     cursor: pointer; }
+
+.editFrequency .btn {
+  padding: 2%;
+  font-size: 16px;
+  border-radius: 4px; }
 
 .signup_login_container {
   text-align: center;
@@ -232,7 +236,7 @@ a {
 .btn {
   border: none;
   background-color: #e7bb41;
-  padding: 2.5%;
+  padding: 1%;
   margin: 7px;
   font-size: 1.25rem;
   border-radius: 3%; }

@@ -38,8 +38,8 @@ ItemView.prototype = {
   renderEditPage: function(){
     var self = this;
     var html = $("<div class=editFrequency>");
-    html.append("<input name='title' value='" + this.frequency.title + "'>");
-    html.append("<input name='genre' value='" + this.frequency.genre + "'>");
+    html.append("<h3>" + "New Frequen.c Name" + "</h3>" + "<input name='title' value='" + this.frequency.title + "'>");
+    html.append("<h3>" + "New Frequen.c Genre" + "</h3>" + "<input name='genre' value='" + this.frequency.genre + "'>");
     html.append("<button class='btn updateFrequency'>Update Frequency</button>");
     html.append("<button class='btn deleteFrequency'>Delete Frequency</button>");
     html.append("<button class='btn addPodcast'><a href='/" + this.frequency.id + "/podcast_search'>Add Podcast</a></button>");

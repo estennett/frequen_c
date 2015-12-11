@@ -16,7 +16,7 @@
   margin: 1%;
   padding: 1%;
   @include border-radius(2px);
-  text-align: center;
+  // text-align: center;
 
   @media screen and (min-width: $break-small) {
     width: 40%
@@ -49,6 +49,13 @@
     cursor: pointer
     }
 }
+
+.editFrequency .btn {
+  padding: 2%;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
 //  add class in frequency view for individual podcast
 
 
