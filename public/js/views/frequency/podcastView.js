@@ -4,7 +4,7 @@ var PodcastView = function(podcast){
   self.$el = $("<div class=podcast></div>")
   self.render();
 }
-
+//show podcast name and description, hide other elements on page
 PodcastView.prototype = {
   render: function(){
     var self = this;
