@@ -22,7 +22,7 @@ Frequency.prototype = {
 
   update: function(frequencyData) {
     var self = this;
-    var url = "http://127.0.0.1:4000/frequencies/" + this.id;
+    var url = "/frequencies/" + this.id;
     var request = $.ajax({
       url: url,
       method: "patch",
@@ -38,7 +38,7 @@ Frequency.prototype = {
 
   create: function(newFrequencyData) {
     var self = this;
-    var url = "http://127.0.0.1:4000/frequencies/";
+    var url = "/frequencies/";
     var request = $.ajax({
       url: url,
       method: "post",
@@ -50,14 +50,14 @@ Frequency.prototype = {
   },
 
   destroy: function(){
-    var url = "http://127.0.0.1:4000/frequencies/" + this.id;
+    var url = "/frequencies/" + this.id;
     var request = $.ajax( {url: url, method: "delete"} );
     return request;
   },
 
   destroyPodcast: function(podcastId) {
     var podcastId = podcastId
-    var url = "http://127.0.0.1:4000/frequencies/podcast/" + this.id + "/" + podcastId;
+    var url = "/frequencies/podcast/" + this.id + "/" + podcastId;
     var request = $.ajax( {url: url, method: "delete"} );
     console.log(this.id)
     console.log(podcastId)
