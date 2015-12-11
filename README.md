@@ -40,3 +40,8 @@ Visit http://127.0.0.1:4000 to view the application
 See: https://trello.com/b/TeFnURVf/frequen-c
 
 ### Unsolved Problems
+
+- Add Comments to Podcasts to enable discussions.
+- Add user authorization through the application.
+- Create search capabilities for frequencies.
+- Enable users to "own" and "join" frequencies.
