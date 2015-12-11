@@ -13,14 +13,15 @@ PodcastModel.remove({}, function(err){
   console.log(err)
 });
 
-var history = new FrequencyModel({title: "History Buffs", genre: "history"})//new frequency model
-var music = new FrequencyModel({title: "Musical Musings", genre: "music"})//new
-var crime = new FrequencyModel({title: "Criminal Minds", genre: "crime"})//new
-var comedy = new FrequencyModel({title: "Comedy Nerds", genre: "comedy"})//new
-var beverage = new FrequencyModel({title: "Let's Talk Drank", genre: "beverages"})//new
-var design = new FrequencyModel({title: "Modern Design", genre: "design"})//new
-var science = new FrequencyModel({title: "Science Geeks", genre: "science"})//new
-var dance = new FrequencyModel({title: "All About Dance", genre: "dance"})//new
+var history = new FrequencyModel({title: "History Buffs", genre: "history"})
+var music = new FrequencyModel({title: "Musical Musings", genre: "music"})
+var crime = new FrequencyModel({title: "Criminal Minds", genre: "crime"})
+var comedy = new FrequencyModel({title: "Comedy Nerds", genre: "comedy"})
+var beverage = new FrequencyModel({title: "Let's Talk Drank", genre: "beverages"})
+var design = new FrequencyModel({title: "Modern Design", genre: "design"})
+var science = new FrequencyModel({title: "Science Geeks", genre: "science"})
+var dance = new FrequencyModel({title: "All About Dance", genre: "dance"})
+var dance = new FrequencyModel({title: "Binge-casting", genre: "dance"})
 
 
 

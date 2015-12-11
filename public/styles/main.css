@@ -229,7 +229,8 @@ footer {
   text-align: center; }
 
 .genre_title {
-  text-align: center; }
+  text-align: center;
+  font-style: italic; }
 
 body {
   font-family: "Roboto", sans-serif; }
