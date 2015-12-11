@@ -13,15 +13,15 @@ PodcastModel.remove({}, function(err){
   console.log(err)
 });
 
-var history = new FrequencyModel({title: "History Buffs", genre: "history"})
-var music = new FrequencyModel({title: "Musical Musings", genre: "music"})
-var crime = new FrequencyModel({title: "Criminal Minds", genre: "crime"})
-var comedy = new FrequencyModel({title: "Comedy Nerds", genre: "comedy"})
-var beverage = new FrequencyModel({title: "Let's Talk Drank", genre: "beverages"})
-var design = new FrequencyModel({title: "Modern Design", genre: "design"})
-var science = new FrequencyModel({title: "Science Geeks", genre: "science"})
-var dance = new FrequencyModel({title: "All About Dance", genre: "dance"})
-var dance = new FrequencyModel({title: "Binge-casting", genre: "dance"})
+var history = new FrequencyModel({title: "History Buffs", genre: "History"})
+var music = new FrequencyModel({title: "Musical Musings", genre: "Music"})
+var crime = new FrequencyModel({title: "The Great Outdoors", genre: "Hiking, Camping"})
+var comedy = new FrequencyModel({title: "Comedy Nerds", genre: "Comedy, Stand-up"})
+var beverage = new FrequencyModel({title: "Let's Talk Drank", genre: "Beer, Wine, Coffee, etc."})
+var design = new FrequencyModel({title: "Modern Design", genre: "Interior Design, Web-Design, etc."})
+var science = new FrequencyModel({title: "Coding", genre: "Web-development, Programming"})
+var dance = new FrequencyModel({title: "Binge-casting", genre: "Serial, StartUp, etc."})
+var dance = new FrequencyModel({title: "Harry Potter Lovers", genre: "Harry Potter, Muggles"})
 
 
 

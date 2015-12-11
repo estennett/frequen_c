@@ -86,18 +86,3 @@
   }
 
 }
-
-.newFrequencyButton, .goHome {
-  width: 45%;
-}
-
-.frequencies > .newFrequency {
-  width: 50%;
-  text-align: center;
-  background-color: white;
-
-  .btn.createFrequency {
-    display: block;
-    margin: 2% auto;
-  }
-}
