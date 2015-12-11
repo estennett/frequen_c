@@ -69,6 +69,15 @@ Frequency.prototype = {
     return request;
   },
 
+  destroyPodcast: function(podcastId) {
+    var podcastId = podcastId
+    var url = "http://127.0.0.1:4000/frequencies/podcast/" + this.id + "/" + podcastId;
+    var request = $.ajax( {url: url, method: "delete"} );
+    console.log(this.id)
+    console.log(podcastId)
+    return request;
+  },
+
   reload: function(newData){
     for(var attrname in newData) {
       this[attrname] = newData[attrname];
