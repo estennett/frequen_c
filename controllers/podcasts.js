@@ -4,8 +4,6 @@ var Frequency = require('../models/frequency');
 var Podcast = require('../models/podcast');
 var flash = require('connect-flash');
 
-
-
 // GET /:freq_id/podcast_search
 function getPodcastSearch(request, response) {
   response.render('podcast_search');
