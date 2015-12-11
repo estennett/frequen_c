@@ -104,11 +104,11 @@ footer {
 .editFrequency .btn:hover {
   background-color: #ecd084; }
 .editFrequency .addPodcast {
-  background-color: #742625;
+  background-color: #d5bdc9;
   width: 100%;
   margin: 10px 0; }
 .editFrequency .addPodcast:hover {
-  background-color: #c17760; }
+  background-color: #ab7c93; }
 .editFrequency .h4 {
   margin-top: 3px;
   float: left; }
@@ -252,12 +252,12 @@ footer {
   background: white; }
 .podcast .btn {
   float: left;
-  background-color: #742625;
+  background-color: #d5bdc9;
   border-radius: 4px;
   font-size: 20px;
   padding: 5px; }
 .podcast .btn:hover {
-  background-color: #c17760; }
+  background-color: #ab7c93; }
 
 body {
   font-family: "Roboto", sans-serif; }
