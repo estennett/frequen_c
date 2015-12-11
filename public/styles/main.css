@@ -99,7 +99,8 @@ footer {
   padding: 2%;
   font-size: 16px;
   border-radius: 4px;
-  margin: 8px 5px; }
+  margin: 8px 5px;
+  border-radius: 5px; }
 .editFrequency .btn:hover {
   background-color: #ecd084; }
 .editFrequency .addPodcast {
@@ -251,7 +252,10 @@ footer {
   background: white; }
 .podcast .btn {
   float: left;
-  background-color: #742625; }
+  background-color: #742625;
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 5px; }
 .podcast .btn:hover {
   background-color: #c17760; }
 
