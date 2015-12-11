@@ -1,6 +1,8 @@
-var PodcastView = function(podcast){
+var PodcastView = function(podcast, parent){
   var self = this;
   self.podcast = podcast;
+  self.podcastId = podcast.id
+  self.parentObject = parent
   self.$el = $("<div class=podcast></div>")
   self.render();
 }
@@ -24,11 +26,7 @@ PodcastView.prototype = {
     var $el = $("<button class= btn deletePodcast> Delete Podcast </button>");
     this.$el.append($el);
     this.$el.find($el).on("click", function(){
-      this.podcast.destroy().then(function(){
-        this.$el.siblings(".podcast").show();
-        this.$el.remove();
-      })
-      console.log("test");
+      self.parentObject.destroyPodcast(self.podcastId);
     })
-    },
-  };
+  },
+};
