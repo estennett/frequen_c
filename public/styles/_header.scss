@@ -42,11 +42,7 @@ header {
     margin: 2%;
     float: right;
     @include border-radius(2px);
-
-
-    li:hover {
-      background-color:$light-yellow;
-    }
+    font-weight: bold;
 
     @media screen and (min-width: $break-small) {
       padding: 6%;
@@ -58,5 +54,11 @@ header {
   }
 
   @media screen and (min-width: $break-small) {
+  }
+
+  .navbar{
+    li:hover{
+      background-color: $light-yellow;
+    }
   }
 }
