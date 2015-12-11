@@ -5,6 +5,7 @@ var FrequencyListView = function(el){
   self.renderAll();
   self.$el.find(".goHome").on("click", function(){
       self.renderAll();
+      self.$el.find(".newFrequency").hide();
   });
 
   self.$el.find(".newFrequencyButton").on("click", function(){
@@ -34,10 +35,11 @@ FrequencyListView.prototype.toggleNewForm = function(){
   var self = this;
   self.$el.find("div.newFrequency").remove();
   var $el = $("<div class='newFrequency'>");
-  $el.append("<h4>"+ "Frequen.c Name" + "</h4>" + "<input name='title'>");
-  $el.append("<h4>" + "Frequen.c Genre" + "</h4>" + "<input name='genre'>");
+  $el.append("<h4>Frequen.c Name</h4><input name='title'>");
+  $el.append("<h4>Frequen.c Genre</h4><input name='genre'>");
   $el.append("<button class='btn createFrequency'>Create Frequency</button>");
   self.$el.append($el);
+  $el.siblings(".frequency").hide();
 }
 
 FrequencyListView.prototype.createFrequency = function(){
