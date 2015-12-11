@@ -110,8 +110,7 @@ footer {
 .editFrequency .addPodcast:hover {
   background-color: #ab7c93; }
 .editFrequency h4 {
-  margin-top: 3px;
-  float: left; }
+  margin-top: 3px; }
 
 .newFrequencyButton, .goHome {
   width: 45%; }
