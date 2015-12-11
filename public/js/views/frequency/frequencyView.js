@@ -15,3 +15,4 @@ FrequencyView.prototype = {
       html.append("<button class = 'create-podcast'> Add a Podcast </button>");
       return(html);
     },
+};
