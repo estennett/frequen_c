@@ -38,7 +38,7 @@ ItemView.prototype = {
   renderEditPage: function(){
     var self = this;
     var html = $("<div class=editFrequency>");
-    html.append("<h4>Frequen.c Name: </h4><input name='title' value='" + this.frequency.title + "'>");
+    html.append("<div class = pod-view><h4>Frequen.c Name: </h4><input name='title' value='" + this.frequency.title + "'></div>");
     html.append("<h4>Frequen.c Genre: </h4><input name='genre' value='" + this.frequency.genre + "'>");
     html.append("<button class='btn updateFrequency'>Update Frequency</button>");
     html.append("<button class='btn deleteFrequency'>Delete Frequency</button>");

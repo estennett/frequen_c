@@ -13,6 +13,7 @@
 
   h4 {
     margin: 2% 0;
+    float:left;
   }
 }
 
@@ -83,6 +84,11 @@
 
   h4 {
     margin-top: 3px;
+    display: block;
   }
 
+}
+
+.pod-view{
+  float:left;
 }
