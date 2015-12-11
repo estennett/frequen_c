@@ -31,7 +31,7 @@ ItemView.prototype = {
     this.$el.find("div.podcast").remove();
     var podcasts = this.frequency.podcasts;
     podcasts.forEach(function(podcast){
-      var podcastView = new PodcastView(podcast);
+      var podcastView = new PodcastView(podcast, self.frequency);
       self.$el.append(podcastView.$el)
     });
   },

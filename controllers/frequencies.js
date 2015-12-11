@@ -27,10 +27,28 @@ router.post("/frequencies/", function(req, res){
   })
 });
 
+router.delete("/frequencies/podcast/:id/:podcastId", function(req, res){
+  // console.log(req.params.id);
+  // console.log(req.params.podcastId);
+  // Frequency.update( { id: req.params.id }, { $pullAll: { podcasts: [req.params.podcastId] } } );
+  Frequency.findByIdAndUpdate( req.params.id , {
+     $pull: {
+       podcasts: {_id: req.params.podcastId}
+      }
+    }, function(err, docs){
+      if(err){
+        console.log("No can brah")
+      }
+    } );
+  res.json({success: true});
+});
+
 router.delete("/frequencies/:id", function(req, res){
   Frequency.findByIdAndRemove(req.params.id).then(function(){
     res.json({success: true});
   });
 });
+
+
 
 module.exports = router;

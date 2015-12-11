@@ -241,13 +241,15 @@ footer {
   .episode .btn, .podcastEntry .btn {
     font-size: 1rem;
     padding: 4%;
-    margin: 0.5% auto; }
+    margin: 0 auto; }
     @media screen and (min-width: 500px) {
       .episode .btn, .podcastEntry .btn {
         padding: 2%; } }
     @media screen and (min-width: 920px) {
       .episode .btn, .podcastEntry .btn {
-        padding: 1.5%; } }
+        padding: 0 2%;
+        min-width: 150px;
+        max-height: 55px; } }
 
 .episode:nth-child(even), .podcastEntry:nth-child(even) {
   background-color: #eee; }
