@@ -15,6 +15,7 @@
   }
   h4{
     margin: 0;
+    float: left;
   }
 }
 
@@ -59,14 +60,30 @@
     }
 }
 
-.editFrequency .btn {
+.editFrequency {
+  .btn {
   padding: 2%;
   font-size: 16px;
   border-radius: 4px;
-  margin: 1px;
+  margin: 8px 5px;
+  }
+  .btn:hover{
+    background-color: $light-yellow;
+  }
 
-}
-.editFrequency h4 {
-  margin-top: 8px;
-  float: left;
+  .addPodcast{
+    background-color: $maroon;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .addPodcast:hover{
+    background-color: $light-maroon;
+  }
+
+  .h4{
+    margin-top: 3px;
+    float: left;
+  }
+
 }
