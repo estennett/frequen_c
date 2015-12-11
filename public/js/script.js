@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var $freqs = $("<div class= 'frequencies'><button class='goHome'>Go Home E.T.</button><button class='newFrequencyButton'>New Frequency</button></div>")
+  var $freqs = $("<div class= 'frequencies'><button class='btn goHome'>Go Home E.T.</button><button class='btn newFrequencyButton'>New Frequency</button></div>")
 
   var footer = $('footer');
   $(footer).before($freqs);

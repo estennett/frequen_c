@@ -36,9 +36,9 @@ FrequencyListView.prototype.toggleNewForm = function(){
   var self = this;
   self.$el.find("div.newFrequency").remove();
   var $el = $("<div class='newFrequency'>");
-  $el.append("<input name='title'>");
-  $el.append("<input name='genre'>");
-  $el.append("<button class='createFrequency'>Create Frequency</button>");
+  $el.append("<h4>"+ "Frequen.c Name" + "</h4>" + "<input name='title'>");
+  $el.append("<h4>" + "Frequen.c Genre" + "</h4>" + "<input name='genre'>");
+  $el.append("<button class='btn createFrequency'>Create Frequency</button>");
   self.$el.append($el);
 }
 

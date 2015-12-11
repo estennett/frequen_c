@@ -1,20 +1,90 @@
 .frequencies {
-  padding: 3%;
+  padding: 2%;
+  background-image: url('pattern_white.jpg');
+  background-color: #FCFBE3;
+
+}
+
+.frequency {
+  background-color: white;
+}
+
+.frequency {
+  h3 {
+    text-align:center;
+  }
+  h4{
+    margin: 0;
+    float: left;
+  }
 }
 
 .frequencies > div {
   display: inline-block;
   width: 90%;
-  border: 2px solid black;
+  border: 3px solid black;
   margin: 1%;
   padding: 1%;
   @include border-radius(2px);
+  // text-align: center;
 
   @media screen and (min-width: $break-small) {
-    width: 40%
+    width: 40% //can change back to 40% if want
   }
 
   @media screen and (min-width: $break-med) {
-    width: 25%
+    width: 25% //can change back to 25% if want
   }
+  // want to have same hover associated with frequencies and podcats - how to turn this into variable?
+  &:hover {
+    background-color: #e6e6e6;
+    cursor: pointer;
+}
+}
+
+.show{
+  h3{
+    text-align: center;
+  }
+}
+
+.show > div > div {
+  border: 2px solid black;
+  padding: 2em;
+  margin: 1em;
+  width: 40%;
+  display: inline-block;
+  &:hover {
+    background-color: #87e2cb;
+    cursor: pointer
+    }
+}
+
+.editFrequency {
+  .btn {
+  padding: 2%;
+  font-size: 16px;
+  border-radius: 4px;
+  margin: 8px 5px;
+  border-radius: 5px;
+  }
+  .btn:hover{
+    background-color: $light-yellow;
+  }
+
+  .addPodcast{
+    background-color: $maroon;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .addPodcast:hover{
+    background-color: $light-maroon;
+  }
+
+  .h4{
+    margin-top: 3px;
+    float: left;
+  }
+
 }

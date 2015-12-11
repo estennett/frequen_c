@@ -4,6 +4,7 @@
 @import "frequencies";
 @import "login";
 @import "podcastSearch";
+@import "podcast";
 
 body {
   font-family: $font;
@@ -22,9 +23,10 @@ a {
 .btn {
   border: none;
   background-color: $yellow;
-  padding: 3%;
-  margin: 5% auto;
+  padding: 1%;
+  margin: 7px;
   font-size: 1.25rem;
+  border-radius: 3%;
 }
 
 .clearfix:after {
@@ -38,4 +40,8 @@ a {
 
 .hide {
   display: none;
+}
+
+.newFrequencyButton, .goHome {
+  width: 45%;
 }

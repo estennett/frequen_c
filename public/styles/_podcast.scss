@@ -1,0 +1,26 @@
+.podcast_title {
+  text-align: center;
+}
+
+.genre_title {
+  text-align: center;
+  font-style: italic;
+}
+
+.podcast  {
+  .btn:hover{
+  background: white;
+  }
+  .btn {
+    float: left;
+    background-color: $maroon;
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 5px;
+  }
+  .btn:hover{
+    background-color: $light-maroon;
+  }
+
+
+}

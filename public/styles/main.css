@@ -15,8 +15,6 @@ header {
     @media screen and (min-width: 920px) {
       header #logo {
         width: 20%; } }
-  header a {
-    font-color: white; }
   header .title {
     width: 50%; }
   header ul {
@@ -34,6 +32,8 @@ header {
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
     border-radius: 2px; }
+    header li li:hover {
+      background-color: #cfa839; }
     @media screen and (min-width: 500px) {
       header li {
         padding: 6%; } }
@@ -49,12 +49,23 @@ footer {
     padding: 4%; }
 
 .frequencies {
-  padding: 3%; }
+  padding: 2%;
+  background-image: url("pattern_white.jpg");
+  background-color: #FCFBE3; }
+
+.frequency {
+  background-color: white; }
+
+.frequency h3 {
+  text-align: center; }
+.frequency h4 {
+  margin: 0;
+  float: left; }
 
 .frequencies > div {
   display: inline-block;
   width: 90%;
-  border: 2px solid black;
+  border: 3px solid black;
   margin: 1%;
   padding: 1%;
   -webkit-border-radius: 2px;
@@ -67,9 +78,44 @@ footer {
   @media screen and (min-width: 920px) {
     .frequencies > div {
       width: 25%; } }
+  .frequencies > div:hover {
+    background-color: #e6e6e6;
+    cursor: pointer; }
+
+.show h3 {
+  text-align: center; }
+
+.show > div > div {
+  border: 2px solid black;
+  padding: 2em;
+  margin: 1em;
+  width: 40%;
+  display: inline-block; }
+  .show > div > div:hover {
+    background-color: #87e2cb;
+    cursor: pointer; }
+
+.editFrequency .btn {
+  padding: 2%;
+  font-size: 16px;
+  border-radius: 4px;
+  margin: 8px 5px;
+  border-radius: 5px; }
+.editFrequency .btn:hover {
+  background-color: #ecd084; }
+.editFrequency .addPodcast {
+  background-color: #742625;
+  width: 100%;
+  margin: 10px 0; }
+.editFrequency .addPodcast:hover {
+  background-color: #c17760; }
+.editFrequency .h4 {
+  margin-top: 3px;
+  float: left; }
 
 .signup_login_container {
-  text-align: center; }
+  text-align: center;
+  background-image: url("pattern_white.jpg"); }
   .signup_login_container .form_container, .signup_login_container .twitter {
     width: 75%;
     margin: 5% auto;
@@ -78,7 +124,8 @@ footer {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
-    border-radius: 3px; }
+    border-radius: 3px;
+    background: white; }
     @media screen and (min-width: 920px) {
       .signup_login_container .form_container, .signup_login_container .twitter {
         display: inline-block;
@@ -100,7 +147,8 @@ footer {
         margin-top: 15%; } }
 
 .podcastSearch {
-  text-align: center; }
+  text-align: center;
+  background-image: url("pattern_white.jpg"); }
 
 .result {
   text-align: left; }
@@ -132,7 +180,8 @@ footer {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
-  border-radius: 3px; }
+  border-radius: 3px;
+  background: white; }
   @media screen and (min-width: 920px) {
     .searchForPodcast {
       display: inline-block;
@@ -162,7 +211,8 @@ footer {
   padding: 3%;
   margin: 0 auto;
   width: 80%;
-  border: 1px solid #eee; }
+  border: 2px solid #eee;
+  background: white; }
   @media screen and (min-width: 500px) {
     .episode, .podcastEntry {
       justify-content: space-between;
@@ -191,6 +241,24 @@ footer {
 .episode:nth-child(even), .podcastEntry:nth-child(even) {
   background-color: #eee; }
 
+.podcast_title {
+  text-align: center; }
+
+.genre_title {
+  text-align: center;
+  font-style: italic; }
+
+.podcast .btn:hover {
+  background: white; }
+.podcast .btn {
+  float: left;
+  background-color: #742625;
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 5px; }
+.podcast .btn:hover {
+  background-color: #c17760; }
+
 body {
   font-family: "Roboto", sans-serif; }
 
@@ -205,9 +273,10 @@ a {
 .btn {
   border: none;
   background-color: #e7bb41;
-  padding: 3%;
-  margin: 5% auto;
-  font-size: 1.25rem; }
+  padding: 1%;
+  margin: 7px;
+  font-size: 1.25rem;
+  border-radius: 3%; }
 
 .clearfix:after {
   visibility: hidden;
@@ -219,5 +288,8 @@ a {
 
 .hide {
   display: none; }
+
+.newFrequencyButton, .goHome {
+  width: 45%; }
 
 /*# sourceMappingURL=main.css.map */

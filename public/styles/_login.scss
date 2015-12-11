@@ -1,5 +1,6 @@
 .signup_login_container {
   text-align: center;
+  background-image: url('pattern_white.jpg');
 
   .form_container, .twitter {
     width: 75%;
@@ -7,6 +8,7 @@
     padding: 2%;
     border: 3px solid black;
     @include border-radius(3px);
+    background: white;
 
     @media screen and (min-width: $break-med) {
       display: inline-block;
