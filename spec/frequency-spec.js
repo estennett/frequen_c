@@ -1,3 +1,5 @@
+// good job writing some tests! would love to see more, but this is a good start
+
 var frequencyModel = require("../models/frequency.js")
 var podcastModel = require("../models/podcast.js")
 

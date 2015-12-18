@@ -21,7 +21,12 @@ EpisodePreviewView.prototype = {
     addToFrequency.on("click", function(){
       currentURL = window.location.pathname;
       frequencyID = currentURL.match(/\w+/);
-
+      // two thoughts:
+      // 1. this could and probably should be accomplished via an ajax request
+      // that could then redirect to the home page when it's done, rather than
+      // faking out a form.
+      // 2. this type of code feels more like it belongs on an EpisodePreview or Frequency
+      // model, as a addPodcast instance method.
       $('<form action="/' + frequencyID[0] + '/podcast_search" method="POST">' + '<input type="hidden" name="podcastData" value="' + self.episode.title + '"><input type="hidden" name="podcastData" value="' + self.episode.audio + '"><input type="hidden" name="podcastData" value="' + self.episode.description + '"></form>').submit();
     });
   },

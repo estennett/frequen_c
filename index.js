@@ -16,6 +16,7 @@ var staticsController = require('./controllers/statics');
 var usersController = require('./controllers/users');
 var uriUtil = require('mongodb-uri')
 var favicon = require('serve-favicon');
+// recommend using new lines to group related requires together to improve readability
 
 var mongodbUri = 'mongodb://localhost/frequency';
 mongoose.connect(process.env.MONGOLAB_URI || mongodbUri);
@@ -25,9 +26,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use(morgan('dev'));
+// because you're declaring routers in some controllers, and not in others,
+// your index.js is a bit hard to read. By following the same patterns in our
+// code, we can recognize and understand them, which makes for much easier-to-read
+// code
 app.use('/', require('./controllers/frequencies'));
 
 app.set('view engine', 'hbs');
+// your views (server-side HSB) don't need to be in public... instead they should
+// be in a top-level views folder, next to the models, controllers, etc.
+// only client side code should be in public
 app.set("views","./public/js/views");
 
 app.use(express.static(path.join(__dirname, 'public')));//need public directory

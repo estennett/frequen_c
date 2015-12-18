@@ -3,6 +3,9 @@ var FrequencyListView = function(el){
   // self.frequencies = frequencies;
   self.$el = el;
   self.renderAll();
+
+  // I'd give these two anonymous functions (the callbacks for event listeners)
+  // names and refer to them here for clarity
   self.$el.find(".goHome").on("click", function(){
       self.renderAll();
       self.$el.find(".newFrequency").hide();
