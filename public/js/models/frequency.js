@@ -29,6 +29,9 @@ Frequency.prototype = {
       data: JSON.stringify(frequencyData),
       contentType : 'application/json'
     }).then(
+      // I don't think you need this wrapper function, since you can just
+      // reference self.reload here without calling it (and the correct argument)
+      // will be passed in by the ajax request
       function(updatedFrequencyInfo) {
         self.reload(updatedFrequencyInfo);
       }

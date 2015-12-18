@@ -1,3 +1,4 @@
+// a quick search seems to indicate this isn't used... delete it?
 var FrequencyView = function(frequency){
   var self = this;
   self.frequencyShowTemplate();

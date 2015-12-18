@@ -1,3 +1,6 @@
+// should this file be in views/podcasts instead of frequency? just a thought,
+// I could see an argument either way
+
 var PodcastView = function(podcast, parent){
   var self = this;
   self.podcast = podcast;

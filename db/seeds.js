@@ -13,6 +13,11 @@ PodcastModel.remove({}, function(err){
   console.log(err)
 });
 
+// the code below is good, but technically we should wait to run this code
+// until the `remove` methods above have finished, meaning we need to put them
+// inside the callbacks, and thus they need to be nested or use promise API
+// e.g.
+// FrequencyModel.remove({}).then(PodcastModel.remove()).then(doAllTheStuffBelow())
 var history = new FrequencyModel({title: "History Buffs", genre: "History"})
 var music = new FrequencyModel({title: "Musical Musings", genre: "Music"})
 var crime = new FrequencyModel({title: "The Great Outdoors", genre: "Hiking, Camping"})

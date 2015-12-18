@@ -19,6 +19,8 @@ function authenticatedUser(req, res, next) {
 router.route('/')
   .get(staticsController.home);
 
+// this appear to be left in from lesson code... make sure to clean up
+// anything you copy/paste from other sources!
 router.route("/secret")
  .get(authenticatedUser, usersController.secret)
 
@@ -43,7 +45,7 @@ router.route('/auth/twitter/callback')
   }));
 
 router.route('/:freq_id/podcast_search')
-  .get(podcastsController.getPodcastSearch)
-  .post(podcastsController.addPodcast)
+  .get(podcastsController.getPodcastSearch) // this makes sense, but
+  .post(podcastsController.addPodcast) // I might make this second one a separate path, like POST /:freq_id/add_podcast
 
 module.exports = router
