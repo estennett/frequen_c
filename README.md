@@ -45,6 +45,6 @@ See: https://trello.com/b/TeFnURVf/frequen-c
 - Add user authorization through the application.
 - Create search capabilities for frequencies.
 - Enable users to "own" and "join" frequencies.
-- 
-###
+
+### Deployed
 A deployed version of the site is available on Heroku [here](http://frequen-c.herokuapp.com/).
